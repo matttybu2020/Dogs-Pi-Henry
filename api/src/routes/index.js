@@ -11,12 +11,9 @@ const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
+
+
 let urLink = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
-
-
-
-
-
 
 
 const getApiData = async() => {
@@ -74,7 +71,10 @@ const getAllDogs = async () => {
 
 
 
-//--endpoints--//
+//!--endpoints--//
+
+
+//* Ruta que me traigo Todos */
 router.get("/dogs", async(req, res) => {//esta funcion también podra recibir un nombre por medio de query
     // const name = req.query.name;
     const { name } = req.query;
@@ -88,7 +88,7 @@ router.get("/dogs", async(req, res) => {//esta funcion también podra recibir un
 });
 
 
-
+//** Ruta para el Id */
 
 router.get("/dogs/:idRaza", async(req, res) => {//traer la info de un perro por su id, del modelo raza
     const { idRaza } = req.params;
@@ -102,7 +102,7 @@ router.get("/dogs/:idRaza", async(req, res) => {//traer la info de un perro por 
 });
 
 
-
+//** Ruta que Me traigo los Temperamentos */
 
 router.get("/temperament", async (req, res) => {
     const temperamentsApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
@@ -121,7 +121,7 @@ router.get("/temperament", async (req, res) => {
 
 
 
-
+//** Ruta de Creacion */
 
 router.post("/dog", async (req, res) => {
     let {
@@ -159,9 +159,36 @@ router.post("/dog", async (req, res) => {
  
     dog.addTemperament(associatedTemp);
  
-    res.status(200).send("Dog created succesfully!")
+    res.status(200).send("El Dog se creo Correctamente!")
 })
 
 router.use(express.json());
 
+
+
+//** Ruta delete prueba beta */
+/*
+router.delete("/dogs/:idRaza", async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      Dog.destroy({ where: { id: id } });
+     
+    } catch (err) {
+      next(err);
+    }})*/
+
+//**ruta put */
+
+//UPDATE
+// router.put('put/:id',(req,res)=>{
+//   await Dog.update({
+//     name,
+//     height
+//   }
+//     where:{
+//       id: req.params.id})
+
+//     }).then(result =>{
+//       res.json(result)
+//     })
 module.exports = router;

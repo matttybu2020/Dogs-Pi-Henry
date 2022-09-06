@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+.titApp .contFecha {
+    color: #8795af;
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: fit-content;
+}
+
+.titApp .contFecha p {
+    margin: 0;
+
+}
+
+.titApp .contFecha .dia {
+    font-size: 3vh;
+    border-bottom: 1px solid #c8ccd3;
+}
+
+.titApp .contFecha .mes {
+    font-size: 3vh;
+}
+
+.titApp .contFecha .año {
+    font-size: 3vh;
+}
+
+@media (max-width: 850px) {
+    .titApp {
+        height: 5vh;
+    }
+
+
+    .titApp .contFecha {
+        color: transparent;
+        display: none;
+    }
+}

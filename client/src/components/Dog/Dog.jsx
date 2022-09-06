@@ -1,0 +1,28 @@
+import React from "react";
+//import style from "../Card/Card.module.css";
+import "./Dog.css"
+import { Link } from "react-router-dom";
+
+
+export default function Card({ image, name, temperaments,id }) {
+  return (
+    <div className="main_container">
+      <div className="image_container">
+        <img  src={`${image}`} alt={`imagen de: ${name}`}/>
+      </div>
+      <h2>{name}</h2>
+      <div className="temperaments_container">
+        {
+        temperaments.map((temps) => <h3 key={temps+Math.random}>{temps}</h3>)
+        }
+      </div>
+      <div className="div-button">
+        {id && (
+          <Link to={`"/dog-detail/"${id}`}>
+            <button className="Link">Detalles</button>
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}

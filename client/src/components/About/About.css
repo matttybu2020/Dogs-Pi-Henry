@@ -1,0 +1,39 @@
+.con-about{
+    margin-top: 100x;
+    font-family: 'Silkscreen', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(12,20,46);
+background: linear-gradient(90deg, rgba(12,20,46,1) 0%, rgba(104, 106, 108, 0.457) 25%, rgb(108, 116, 117) 90%);
+}
+
+.con-about h1 {
+    font-size:x-large;
+    color: rgb(203, 242, 242);
+    text-shadow: 2px 4px black;
+}
+
+.homeLink{
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 3px rgb(232, 229, 229);
+}
+
+.homeLinks{
+    display: flex;
+    justify-content: center;
+    color: rgb(225, 245, 232);
+    text-shadow: 2px 3px black;
+}
+
+.homeLinks > a{
+    margin: 20px;
+}
+ .homeLinks > a > img {
+    width: 100px;
+    height: 100px;
+ }
