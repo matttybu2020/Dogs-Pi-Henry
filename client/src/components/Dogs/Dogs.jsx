@@ -56,7 +56,7 @@ export default function Dogs() {
     if (currentPage > lastPage) {
       setCurrentPage(1);
     }
-   //dispatch(getTemperaments());
+    dispatch(getTemperaments());
   }, [
     allDog.length,
     todosDogs.length,
@@ -68,13 +68,13 @@ export default function Dogs() {
     dispatch
   ]);
 
-  /*
-    useEffect(() => {
+  
+   /* useEffect(() => {
         //acciones a depachar luego de montar el componente
-        dispatch(AllDogs());
+       
         dispatch(getTemperaments());
-      }, [dispatch]);
-    */
+      }, [dispatch]);*/
+    
 
   return (
     <>

@@ -39,6 +39,7 @@ export default function DogDetails() {
 
     return(
         <>
+        
         <div className="main_container1">
        
             <div className="sub_container">
@@ -70,9 +71,11 @@ export default function DogDetails() {
             </Link> 
         </div> 
 
-
+    
      
 
         </>
-    );
+    )  
+   
 }
+

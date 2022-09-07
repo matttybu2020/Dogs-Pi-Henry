@@ -6,6 +6,7 @@ import { getTemperaments, postCrearDog } from "../../redux/Action/index";
 
 import  "./CrearDog.css"
 
+
 const validate = (form) => {
     let errors = {}
     if(!form.name) {
@@ -20,6 +21,9 @@ const validate = (form) => {
     if(!form.life_span) {
         errors.life_span = "Lifespan is required, type only numbers separated by a dash (-)"
     }
+    if (form.temperaments.length === 0) {
+        errors.temperaments = "Add at least one temperament";
+      }
     return errors
 }
 
@@ -87,30 +91,37 @@ export default function CrearDog() {
     }
     
     const handleSelect = (e) => {
+        
         setForm({
             ...form,
             temperaments: [...form.temperaments, e.target.value]
         })
     }
 
-    const handleDelete = (el) => {
-        setForm({
-            ...form,
-            temperaments: form.temperaments.filter(temp => temp !== el)
-        })
-    }
-
-   /* function handleSelect(e) {
+    /*const  handleSelect = (e) => {
         if (form.temperaments.includes(parseInt(e.target.value))) {
           alert("Ya seleccionaste este temperamento");
         } else {
-            setForm((prev) => ({
+            setForm((prev)=> ({
             ...prev,
             temperaments: [...prev.temperaments, parseInt(e.target.value)],
           }));
         }
         setErrors(validate({ ...form, [e.target.name]: e.target.value }));
       }*/
+
+
+
+
+    const handleDelete = (el) => {
+       
+        setForm({
+            ...form,
+            temperaments: form.temperaments.filter(temp => temp !== el)
+        })
+    }
+
+  
     
 
 
@@ -125,41 +136,82 @@ export default function CrearDog() {
                 <Link to="/dogs">
                     <button className="button_to_home">Go home</button>
                 </Link>
+                <ul>
+                <div className="label">
+                <h3>Create Dog</h3>
+                </div>
                 <form action="" id="form" onSubmit={handleSubmit} className="form">
                     <div className="name_container">
-                        <input className="input_name" type="text" value={form.name} name="name" onChange={(e) => handleChange(e)} placeholder="Name..."/>
+                    <div className="label">
+                    <li>
+                   
+              <label>Name:</label>
+            </li>
+            </div>
+                        <input autoFocus className="input_name" type="text" value={form.name} name="name" onChange={(e) => handleChange(e)} placeholder=""/>
                     </div>
                     <div className="error_form">{errors.name && <p>{errors.name}</p>}</div> {/*mesaje ed error de nombre*/}
 
                     <div className="height_container">
                         <div className="min_height">
-                            <input type="label" value={form.min_height} name="min_height" placeholder="Min height..." onChange={(e) => handleChange(e)}/>
+                        <div className="label">
+                        <li>
+              <label>Height min:</label>
+            </li>
+            </div>
+                            <input type="label" value={form.min_height} name="min_height" placeholder="" onChange={(e) => handleChange(e)}/>
                         </div>
                         
                         <div className="max_height">
-                            <input type="text" value={form.max_height} name="max_height" placeholder="Max height..." onChange={(e) => handleChange(e)}/>
+                        <div className="label">
+                        <li>
+              <label>Height max:</label>
+            </li>
+            </div>
+                    
+                            <input type="text" value={form.max_height} name="max_height" placeholder="" onChange={(e) => handleChange(e)}/>
                         </div>
                     </div>
                     <div className="error_form">{errors.height && <p>{errors.height}</p>}</div>{/* espacio para agregar error */}{/* espacio para agregar error */}
 
                     <div className="weight_container">
                         <div className="min_weight">
-                            <input type="text" value={form.min_weight} name="min_weight" placeholder="Min weight..." onChange={(e) => handleChange(e)}/>
+                        <div className="label">
+                        <li>
+              <label>Weight min:</label>
+            </li>
+            </div>
+                            <input type="text" value={form.min_weight} name="min_weight" placeholder="" onChange={(e) => handleChange(e)}/>
                         </div>
 
                         <div className="max_weight">
-                            <input type="text" value={form.max_weight} name="max_weight" placeholder="Max weight..." onChange={(e) => handleChange(e)}/>
+                        <div className="label">
+                        <li>
+              <label>Weight max:</label>
+            </li>
+            </div>
+                            <input type="text" value={form.max_weight} name="max_weight" placeholder="" onChange={(e) => handleChange(e)}/>
                         </div>
                     </div>
                     <div className="error_form">{errors.weight && <p>{errors.weight}</p>}</div>{/* espacio para agregar error */}
 
                     <div className="life-span-container">
-                        <input type="text" autoComplete="off" name="life_span" value={form.life_span} placeholder="lifespan exam: 10 - 12" onChange={(e) => handleChange(e)}/>
+                    <div className="label">
+                    <li>
+              <label>life-span:</label>
+            </li>
+            </div>
+                        <input type="text" autoComplete="off" name="life_span" value={form.life_span} placeholder="" onChange={(e) => handleChange(e)}/>
                     </div>
                     <div className="error_form">{errors.life_span && <p>{errors.life_span}</p>}</div>{/* espacio para agregar error */}
 
                     <div className="image-container">
-                        <input type="text" autoComplete="off" value={form.image} name="image" placeholder="Image URL..." onChange={(e) => handleChange(e)}/>
+                    <div className="label">
+                    <li>
+              <label>image:</label>
+            </li>
+            </div>
+                        <input type="text" autoComplete="off" value={form.image} name="image" placeholder="" onChange={(e) => handleChange(e)}/>
                     </div>
 
                     <div className={""}>
@@ -191,10 +243,14 @@ export default function CrearDog() {
                         {form.temperaments.map(el => 
                         <div className="element_temperament" key={el} onClick={() => handleDelete(el)}>
                             <p>{`${el}`}</p>
+                           
+           
+        
                         </div>    
                         )}
                     </div>
                 </div>
+                </ul>
             </div>
         </div>
     )

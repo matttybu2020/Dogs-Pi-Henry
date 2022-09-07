@@ -65,6 +65,35 @@ const rootReducer = (state = intialState, action) => {
           dogs: filteredDogs,
         };
         case ORDER_NAME:
+          const orderName = action.payload === 'Asc' ? //compara y ordena izq y derecha
+          state.dogs.sort(function(a, b) { // sort metodo de ordenamiento 
+              if(a.name > b.name) {  // compara el valor y retorna esa posicion
+                  return 1;
+              }
+              if(b.name > a.name) {
+                  return -1;
+              }
+              return 0;       // si son iguales los deja como esta
+          }) :
+
+          //Descendente
+          state.dogs.sort(function(a, b) {
+              if(a.name > b.name) {
+                  return -1;
+              }
+              if(b.name > a.name) {
+                  return 1;
+              }
+              return 0;
+          });
+          return {
+              ...state,
+              dogs: orderName
+          }
+
+
+
+        /*case ORDER_NAME:
           const ordenName =
             action.payload === "A-Z"
               ? state.allDogs.sort((a, b) => {
@@ -88,12 +117,12 @@ const rootReducer = (state = intialState, action) => {
           return {
             ...state,
             dogs: ordenName,
-          };
+          };*/
     
         case ORDER_WEIGHT:
           const sortedWeight =
             action.payload === "min_weight"
-              ? state.allDogs.sort((a, b) => {
+              ? state.dogs.sort((a, b) => {
                   if (parseInt(a.weight[1]) > parseInt(b.weight[1])) {
                     return 1;
                   }
@@ -102,7 +131,7 @@ const rootReducer = (state = intialState, action) => {
                   }
                   return 0;
                 })
-              : state.allDogs.sort((a, b) => {
+              : state.dogs.sort((a, b) => {
                   if (parseInt(a.weight[1]) > parseInt(b.weight[1])) {
                     return -1;
                   }
