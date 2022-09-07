@@ -26,11 +26,11 @@ width: 100%;
 .boton{
     color: black;
     float: left;
-    padding: 8px 16px;
+    padding: 5px 12px;
     text-decoration: none;
     background-color: #dddbd4;
     color: black;
-    border-radius: 25px;
+    border-radius: 20px;
     font-size: 22px;
     border: 1px solid black;
     margin: 0 4px;
@@ -44,7 +44,7 @@ width: 100%;
 .botonSeleccionado{
     color: black;
     float: left;
-    padding: 8px 16px;
+    padding: 5px 12px;
     text-decoration: none;
     background-color: rgb(83, 83, 82);
     color: rgb(245, 234, 234);

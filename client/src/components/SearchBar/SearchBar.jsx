@@ -8,13 +8,14 @@ import "./SearchBar.css"
 function SearchBar() {
     // hooks
         const dispatch = useDispatch();
-        const [name, setName] = useState('');  //estado local seteo en stren vacio
+        const [name, setName] = useState("");  //estado local seteo en stren vacio
     
     
         //** funtion que va value del input por el value del state */
         function handleChange(e) {
             e.preventDefault()
-            setName(e.target.value)
+            setName(e.target.value);
+         
             console.log(name)
         }
     
@@ -22,7 +23,7 @@ function SearchBar() {
             e.preventDefault()
             dispatch(getBreed(name));
             setName("");  // despachamos la action con el name el cual es name va se r mi estado local loque escribe el ususario
-        }
+        };
 
 
        /* const OnClickAll = () => {
@@ -40,8 +41,8 @@ function SearchBar() {
         return(
             <div>
                 <input type='text' placeholder='Buscar...'
-                onChange={e => handleChange(e)} setName=" "></input>
-                <button type='submit' onClick={e => handleSubmit(e)}>Buscar</button>
+                onChange={e => handleChange(e)} ></input>
+                <button type='submit' onClick={handleSubmit} >Buscar</button>
                 <button className="btn" onClick={OnClickAll}>Recargar</button>
             </div>
         )

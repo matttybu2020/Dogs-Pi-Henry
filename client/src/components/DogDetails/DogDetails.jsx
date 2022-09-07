@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { detailsDogs } from "../../redux/Action/index";
 import { Link } from "react-router-dom";
-//import Loading from "../Loading/Loading.jsx"
+import Loading from "../Loading/Loading.jsx"
  import "./DogDetails.css";
 
 export default function DogDetails() {
@@ -38,14 +38,16 @@ export default function DogDetails() {
     
 
     return(
+        <>
         <div className="main_container1">
-            
+       
             <div className="sub_container">
                     <div className="container_elements">
 
-                        <div className="image_container">
+                       <div className="image_container">
                             <img src={imageDog} alt={`imagen de ${nameDog}`}/>
                         </div>
+                        
                         
                         <div className="right_container">
                             <h1>{nameDog}</h1>
@@ -60,10 +62,17 @@ export default function DogDetails() {
                             </div>
                         </div>   
                 </div>
-            </div>
+            </div> 
+
+
             <Link to="/dogs" >
                 <button className="button_home">Volver</button>
             </Link> 
-        </div>
-    )
+        </div> 
+
+
+     
+
+        </>
+    );
 }

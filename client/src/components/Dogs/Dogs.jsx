@@ -11,6 +11,7 @@ import NavBar from "../NavBar/NavBar";
 import Paginado from "../Paginado/Paginado.jsx";
 import Loading from "../Loading/Loading";
 import DogFail from "../DogFail/DogsFail.jsx"
+import Filtrado from "../Filtrado/Filtrado.jsx"
 import "./Dogs.css";
 
 export default function Dogs() {
@@ -41,7 +42,7 @@ export default function Dogs() {
 }
 */
 
-  console.log(currentDogs);
+  //console.log(currentDogs);
 
   const paginado = (numberOfPage) => {
     setCurrentPage(numberOfPage);
@@ -55,8 +56,7 @@ export default function Dogs() {
     if (currentPage > lastPage) {
       setCurrentPage(1);
     }
-
-    dispatch(getTemperaments());
+   //dispatch(getTemperaments());
   }, [
     allDog.length,
     todosDogs.length,
@@ -80,6 +80,7 @@ export default function Dogs() {
     <>
       <NavBar />
       <SearchBar />
+      <Filtrado />
       <Paginado
         dogsPerPage={dogsPerPage}
         allDog={allDog.length}
@@ -111,7 +112,7 @@ export default function Dogs() {
                 </div>
               );
             })
-            ) : typeof allDog === "string" ? (
+            ) : typeof currentDogs === "string" ? (
               <div>
                 <DogFail/>
                 

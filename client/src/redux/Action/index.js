@@ -1,8 +1,9 @@
 import axios from "axios";
 
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS } from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB } from "../Action/constantes"
 
 //** Me traigo todos los perros */
+
 export function AllDogs() {
     return async function (dispatch) {
         const res = await axios.get("http://localhost:3001/dogs");
@@ -16,13 +17,14 @@ export function AllDogs() {
 
 
 //** me traigo los temperamentos */
+
 export function getTemperaments() {
     return async function (dispatch) {
         const res = await axios.get("http://localhost:3001/temperament"); 
         
         return dispatch({
             type: GET_TEMPERAMENTS,
-            payload: res.data,
+            payload: res.data
         });
       }  
   };
@@ -61,3 +63,56 @@ export function detailsDogs(id) {
         }
     }
 };
+
+//** Filtrar por Temperamento */
+
+
+export function FilterTemperament(payload) {
+    return{
+        type: FILTER_TEMPERAMENTS,
+        payload
+    }
+};
+
+
+
+//** Filtrar Orden por nombre */
+
+
+export function OrderName(payload) {
+    return { 
+        type: ORDER_NAME,
+        payload
+    }
+};
+
+
+//** Filtrar Orden por Peso */
+
+
+export function OrderWeight(payload) {
+    return { 
+        type: ORDER_WEIGHT ,
+        payload
+    }
+};
+
+//** Filtrar por  Api -Db */
+
+export function FiltradoApiDb(payload) {
+      return {
+    type: FILTRADO_API_DB,
+    payload
+};
+};
+
+//** Post de creacion Dog */
+  
+
+export function postCrearDog(payload) {
+    return async function () {
+        const data = await axios.post("http://localhost:3001/dog", payload); 
+        return data;
+    }
+}
+

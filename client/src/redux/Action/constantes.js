@@ -15,3 +15,5 @@ export const ORDER_NAME = "ORDER_NAME"
 export const ORDER_WEIGHT = "ORDER_WEIGHT"
 
 export const DOG_DETAILS = "DOG_DETAILS"
+
+export const FILTRADO_API_DB = "FILTRADO_API_DB"

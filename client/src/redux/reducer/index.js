@@ -1,4 +1,4 @@
-import {ALL_DOGS,BREED,DOG_DETAILS} from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB} from "../Action/constantes"
 
 
 
@@ -7,6 +7,7 @@ const intialState = {
   temperaments: [],
   allDogs: [],
   details: [],
+  filteredDogs:[]
 };
 
 const rootReducer = (state = intialState, action) => {
@@ -38,7 +39,109 @@ const rootReducer = (state = intialState, action) => {
         details: myDetails
       };
 
+      case GET_TEMPERAMENTS:
+        const filteresTemp = action.payload.filter((temp) => temp.name !== ""); //eliminar razas con strings vacios
+        return {
+          ...state,
+          temperaments: filteresTemp,
+        };
+  
+      case FILTER_TEMPERAMENTS:
+        const allDogs = state.allDogs;
+        let filteredDogs = [];
+        if (action.payload === "Todos") {
+          filteredDogs = allDogs;
+        } else {
+          for (let i = 0; i < allDogs.length; i++) {
+            let found = allDogs[i].temperaments.find((t) => t === action.payload);
+            if (found) {
+              filteredDogs.push(allDogs[i]);
+            } //todos los perros en la posicion de ese momento
+          }
+        }
+        return {
+          //return funciona correcto
+          ...state,
+          dogs: filteredDogs,
+        };
+        case ORDER_NAME:
+          const ordenName =
+            action.payload === "A-Z"
+              ? state.allDogs.sort((a, b) => {
+                  if (a.name > b.name) {
+                    return 1;
+                  }
+                  if (b.name > a.name) {
+                    return -1;
+                  }
+                  return 0;
+                })
+              : state.allDogs.sort((a, b) => {
+                  if (a.name > b.name) {
+                    return -1;
+                  }
+                  if (b.name > a.name) {
+                    return 1;
+                  }
+                  return 0;
+                });
+          return {
+            ...state,
+            dogs: ordenName,
+          };
+    
+        case ORDER_WEIGHT:
+          const sortedWeight =
+            action.payload === "min_weight"
+              ? state.allDogs.sort((a, b) => {
+                  if (parseInt(a.weight[1]) > parseInt(b.weight[1])) {
+                    return 1;
+                  }
+                  if (parseInt(b.weight[1]) > parseInt(a.weight[1])) {
+                    return -1;
+                  }
+                  return 0;
+                })
+              : state.allDogs.sort((a, b) => {
+                  if (parseInt(a.weight[1]) > parseInt(b.weight[1])) {
+                    return -1;
+                  }
+                  if (parseInt(b.weight[1]) > parseInt(a.weight[1])) {
+                    return 1;
+                  }
+                  return 0;
+                });
+          return {
+            ...state,
+            dogs: sortedWeight,
+          };
 
+          case FILTRADO_API_DB:
+            //const allCharacters2 = state.allCharacters
+            const createdFilter = action.payload === 'Created' ? state.allDogs.filter(i => i.createdInDb) : state.allDogs.filter(i => !i.createdInDb)
+            return {
+                ...state,
+                dogs: action.payload === 'All' ? state.allDogs : createdFilter
+            }
+
+          /*case FILTRADO_API_DB:
+                    if (action.payload === 'default'){
+                        return {...state, filteredDogs: state.allDogs}
+                        }
+                      
+                    if(action.payload === 'DB'){
+                        return {...state, filteredDogs: state.allDogs.filter((dog)=> (typeof dog.id) === 'string')}
+                        }
+                      
+                    if(action.payload === 'API'){
+                        return {...state, filteredDogs: state.allDogs.filter((dog)=> (typeof dog.id) === 'number')}
+                        }
+                        return {...state, filteredDogs: state.allDogs.filter((dog) => {
+                          return dog.temperaments.find((temperaments) => {
+                              return  temperaments === action.payload})
+                      })}*/
+                 
+                      
 
     default:
       return state;

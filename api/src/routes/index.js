@@ -132,7 +132,9 @@ router.post("/dog", async (req, res) => {
      max_weight,
      life_span,
      temperaments,
-     image
+     image,
+    createdInDb
+    
     } = req.body
  
     const fixedHeight = []
@@ -151,6 +153,7 @@ router.post("/dog", async (req, res) => {
      weight: fixedWeight,
      life_span,
      image: image ? image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0GSChc9hkoJSDWABu0Mne3Dyj9JBUqFv9oHRqsgkjR36Tf81KcELxwYh1hhHT4qzyrg&usqp=CAU",
+     createdInDb
     })
  
     let associatedTemp = await Temperament.findAll({

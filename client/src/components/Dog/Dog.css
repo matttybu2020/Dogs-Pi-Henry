@@ -22,7 +22,7 @@ a{
 }
 
 .main_container:hover::before{
-    content: "Detalles";
+   
     height: 100%;
     width: 100%;
     text-align: center;
