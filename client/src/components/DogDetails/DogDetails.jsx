@@ -1,17 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { detailsDogs } from "../../redux/Action/index";
 import { Link } from "react-router-dom";
-import Loading from "../Loading/Loading.jsx"
+//import Loading from "../Loading/Loading.jsx"
+import loading2 from "../../img/loading2.gif"
  import "./DogDetails.css";
 
 export default function DogDetails() {
     const dispatch = useDispatch();
     let { id } = useParams();
 
+    const [loading, setLoading] = useState(true); //para poder crear el loading de carga
+
     useEffect(() => {
         dispatch(detailsDogs(id));
+        setTimeout(() => {
+            setLoading(false);
+          }, 2000);
+        
     }, [dispatch, id]);
 
     const details = useSelector((state) => state.details)
@@ -35,13 +42,21 @@ export default function DogDetails() {
         }
     };
 
-    
+
+ 
+
+   
 
     return(
         <>
         
         <div className="main_container1">
-       
+            {loading ? (
+            <div>
+               <img className="LaImagen" src={loading2} alt="" />
+
+            </div>
+            ):(
             <div className="sub_container">
                     <div className="container_elements">
 
@@ -64,7 +79,7 @@ export default function DogDetails() {
                         </div>   
                 </div>
             </div> 
-
+  )}
 
             <Link to="/dogs" >
                 <button className="button_home">Volver</button>

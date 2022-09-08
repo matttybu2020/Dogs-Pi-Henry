@@ -90,25 +90,49 @@ export default function CrearDog() {
         }))
     }
     
-    const handleSelect = (e) => {
+    /*const handleSelect = (e) => {
         
         setForm({
             ...form,
             temperaments: [...form.temperaments, e.target.value]
         })
-    }
+    }*/
 
-    /*const  handleSelect = (e) => {
-        if (form.temperaments.includes(parseInt(e.target.value))) {
-          alert("Ya seleccionaste este temperamento");
-        } else {
-            setForm((prev)=> ({
-            ...prev,
-            temperaments: [...prev.temperaments, parseInt(e.target.value)],
-          }));
+    /*Controlo que no seleccione un temperament ya seleccionado, hago una copia de los seleccionado y agrego uno nuevo*/
+  function handleSelect(e) {
+    if (form.temperaments.includes(parseInt(e.target.value))) {
+      alert("You already selected this temperament. Try again.");
+    } else {
+        setForm((prev) => ({
+        ...prev,
+        temperaments: [...prev.temperaments, parseInt(e.target.value)],
+      }));
+    }
+    setErrors(validate({ ...form, [e.target.name]: e.target.value }));
+  }
+
+  /*pusheo a names, los nombres de temperament donde tempss.id === select.id*/
+  const tempsNames = (array) => {
+    let names = [];
+    temperaments?.forEach((e) =>
+      array.forEach((id) => {
+        if (parseInt(id) === e.id) {
+          names.push(e.name);
         }
-        setErrors(validate({ ...form, [e.target.name]: e.target.value }));
-      }*/
+      })
+    );
+    return names;
+  };
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -122,24 +146,21 @@ export default function CrearDog() {
     }
 
   
-    
-
-
-
-
-
-
-
     return(
         <div className="main_wrapper">
+            
             <div className="container">
+                <div>
                 <Link to="/dogs">
                     <button className="button_to_home">Go home</button>
                 </Link>
+                </div>
+           
                 <ul>
                 <div className="label">
                 <h3>Create Dog</h3>
                 </div>
+                <br/>
                 <form action="" id="form" onSubmit={handleSubmit} className="form">
                     <div className="name_container">
                     <div className="label">
@@ -219,12 +240,21 @@ export default function CrearDog() {
                     </div>
 
                     <div className={""}>
-                        <select className="select_temperaments" onChange={handleSelect} >
+                        <select className="select_temperaments" onChange={handleSelect} value={form.temperaments}>
                             <option disabled selected>Temperaments</option>
-                            {temperaments.map(d => (                    
-                                <option value={d.name} key={d.name+Math.random()} className="option_temperament">{d.name}</option> //key de elementos de temperamentos, eliminar el repetido reserved
+                            {temperaments?.map((e) => (                
+                                <option value={e.id} key={e.id} className="option_temperament">{e.name}</option> //key de elementos de temperamentos, eliminar el repetido reserved
                             ))}
                         </select>
+                        {errors.temperaments && (
+            <p className="danger">{errors.temperaments}</p>
+          )}
+          <br />
+
+          {/*cada temperament que selecciono lo agrego abajo y puedo seleccionar uno nuevo*/}
+          {form.temperaments.map((e) => (
+            <p id={e}>{tempsNames([e])}</p>
+          ))}
                     </div>
 
                     <div className="container_button_add_dog">

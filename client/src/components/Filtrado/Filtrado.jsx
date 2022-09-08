@@ -44,23 +44,23 @@ function handleCreated(e) {
     return(
         <div className="container_filters">
         <select onChange={OrderByNames}>
-          <option disabled selected defaultValue>
-            Alphabetical order
+          <option >
+           Orden Alfabetico
           </option>
           <option value="A-Z">A-Z</option>
           <option value="Z-A">Z-A</option>
         </select>
 
         <select onChange={OrderByWeights}>
-          <option disabled selected defaultValue>
-            Filter by weight
+          <option >
+            Filtrar por peso
           </option>
           <option value="max_weight">Max</option>
           <option value="min_weight">Min</option>
         </select>
 
         <select onChange={FilterTemperaments}>
-            <option disabled selected defaultValue>Temperaments</option>
+            <option disabled selected defaultValue>Temperamentos</option>
             <option value="Todos">All</option>
             {
               allTemperaments?.map(temp => (
@@ -70,9 +70,9 @@ function handleCreated(e) {
         </select>
 
         <select onChange={e => handleCreated(e)}>
-          <option value="All">All</option>
-          <option value="Created">My Characters</option>
-          <option value="Api">Api Characters</option>
+          <option value="All">Todos</option>
+          <option value="Created">Db</option>
+          <option value="Api">Api</option>
         </select>
 
 

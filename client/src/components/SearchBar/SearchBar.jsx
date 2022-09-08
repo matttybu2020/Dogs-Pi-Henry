@@ -2,53 +2,87 @@ import React, { useState } from "react";
 import { useDispatch  } from "react-redux";
 //import { connect } from 'react-redux'
 import {getBreed,AllDogs } from "../../redux/Action/index"
+//import DogFail from "../DogFail/DogsFail";
 
 import "./SearchBar.css"
 
+
+
+
 function SearchBar() {
-    // hooks
-        const dispatch = useDispatch();
-        const [name, setName] = useState("");  //estado local seteo en stren vacio
-    
-    
-        //** funtion que va value del input por el value del state */
-        function handleChange(e) {
-            e.preventDefault()
-            setName(e.target.value);
-         
-            console.log(name)
-        }
-    
-        function handleSubmit(e) {
-            e.preventDefault()
-            dispatch(getBreed(name));
-            setName("");  // despachamos la action con el name el cual es name va se r mi estado local loque escribe el ususario
-        };
+  // hooks
+      const dispatch = useDispatch();
+      const [name, setName] = useState("");  //estado local seteo en stren vacio
+  
+  
+      //** funtion que va value del input por el value del state */
+      function handleChange(e) {
+        e.preventDefault()
+        setName(e.target.value);
+     
+        console.log(name)
+    }
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (name.length === 0) {
+          return alert ("Vuelva a ingresar de nuevo");
+        }else {
+
+        } dispatch(getBreed(name));
+        setName("")
 
 
-       /* const OnClickAll = () => {
-            AllDogs()
-            setName({
-                buscar: ''
-            });
-        }*/
-        function OnClickAll(e){
-            e.preventDefault()
-            dispatch(AllDogs())
-        }
-      
-    
-        return(
-            <div>
-                <input type='text' placeholder='Buscar...'
-                onChange={e => handleChange(e)} ></input>
-                <button type='submit' onClick={handleSubmit} >Buscar</button>
-                <button className="btn" onClick={OnClickAll}>Recargar</button>
-            </div>
-        )
+
+       
+        // despachamos la action con el name el cual es name va ser mi estado local que escribe el usuario
     };
-    
-    export default SearchBar;
+
+   /* const OnClickAll = () => {
+        AllDogs()
+        setName({
+            buscar: ''
+        });
+    }*/
+    function OnClickAll(e){
+        e.preventDefault()
+        dispatch(AllDogs( ))
+    }
+  
+
+    return(
+        <div>
+            <input type='text' 
+            placeholder='Buscar...'
+            value={name}
+            onChange={e => handleChange(e)}
+             ></input>
+
+
+            <button type='submit' onClick={handleSubmit} >Buscar</button>
+            <button className="btn" onClick={OnClickAll}>Recargar</button>
+        </div>
+    )
+};
+
+export default SearchBar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 function SearchBar({getBreed , AllDogs}){
 
