@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB } from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB ,SAVE_PAGE} from "../Action/constantes"
 
 //** Me traigo todos los perros */
 
@@ -115,4 +115,17 @@ export function postCrearDog(payload) {
         return data;
     }
 }
+
+//** estado global por paginado */
+
+export function savePage(payload){
+    return function (dispatch){
+       return dispatch({type:SAVE_PAGE,
+            payload})
+            
+
+    }
+     
+}
+    
 

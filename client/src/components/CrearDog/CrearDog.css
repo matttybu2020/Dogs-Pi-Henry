@@ -56,8 +56,8 @@
     z-index: -10;
 }
 
-.button_to_home::before{ transform: rotateY(90deg); }
-.button_to_home::after{ transform: rotateX(90deg); }
+.button_to_home::before{ transform: rotatey(90deg); }
+.button_to_home::after{ transform: rotatey(90deg); }
 
 .button_to_home:hover::after,
 .button_to_home:hover::before{

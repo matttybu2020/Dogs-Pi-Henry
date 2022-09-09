@@ -46,7 +46,7 @@ function SearchBar() {
     }*/
     function OnClickAll(e){
         e.preventDefault()
-        dispatch(AllDogs( ))
+        dispatch(AllDogs())
     }
   
 

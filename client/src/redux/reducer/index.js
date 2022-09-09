@@ -1,4 +1,4 @@
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB} from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE} from "../Action/constantes"
 
 
 
@@ -7,7 +7,8 @@ const intialState = {
   temperaments: [],
   allDogs: [],
   details: [],
-  filteredDogs:[]
+  filteredDogs:[],
+  page:1
 };
 
 const rootReducer = (state = intialState, action) => {
@@ -152,6 +153,11 @@ const rootReducer = (state = intialState, action) => {
                 ...state,
                 dogs: action.payload === 'All' ? state.allDogs : createdFilter
             }
+            case SAVE_PAGE:
+              return{
+                ...state,
+                page:action.payload
+              }
 
           /*case FILTRADO_API_DB:
                     if (action.payload === 'default'){

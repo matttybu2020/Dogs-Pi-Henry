@@ -157,7 +157,7 @@ router.post("/dog", async (req, res) => {
     })
  
     let associatedTemp = await Temperament.findAll({
-        where: { name: temperaments},
+        where: { id: temperaments},
     })
  
     dog.addTemperament(associatedTemp);
@@ -166,6 +166,9 @@ router.post("/dog", async (req, res) => {
 })
 
 router.use(express.json());
+
+
+
 
 
 

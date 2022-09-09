@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Page404.css'
 
 export default function Page404  () {
@@ -15,6 +16,11 @@ export default function Page404  () {
                 <span>0</span>
                 <span>4</span>
             </div>
+            <div>
+          <Link to="/dogs">
+            <button className="button_to_home">Go home</button>
+          </Link>
+        </div>
         </>
     )
 }
