@@ -36,8 +36,10 @@ export default function Dogs() {
  const [dogsPerPage] = useState(8);
   const indexLastDogs = currentPage === 1 ? 8 : currentPage * dogsPerPage - 1;
   const indexFirstDogs = currentPage === 1 ? 0 : indexLastDogs - dogsPerPage;
+
+
   var currentDogs;
-  if(typeof allDog  === 'string'){
+  if(typeof allDog  === []){
     currentDogs = allDog
 }else {
   currentDogs = allDog.slice(indexFirstDogs, indexLastDogs) //uso los indices para "fraccionar que juegos muestro"
@@ -86,17 +88,11 @@ export default function Dogs() {
     currentPage,
     dispatch
    
-  
   ]);
   
   
     
-// Paginado siguiente - proximo
-/*
-useEffect (() => {
-  AllDogs()
-  getTemperaments()
-}, [AllDogs, getTemperaments])*/
+
 
 // para next y sigueindte
 const nextPage = () => {
@@ -114,7 +110,7 @@ function  handleNextpage () {
 
 }
 
-
+console.log(allDog)
   return (
     <>
       <NavBar />
@@ -127,7 +123,14 @@ function  handleNextpage () {
         currentPage={currentPage}
         beforePage={beforePage}
         nextPage={nextPage}
+
+
       />
+      {(typeof allDog  === 'string' ) ? 
+       <div>
+      <DogFail/>
+    </div> : (   
+
       <div className="main_container1">
         <div className="container_cards">
           {currentDogs.length ? ( currentDogs.map((el) => (<div className="container_card" key={el.id}>
@@ -142,19 +145,16 @@ function  handleNextpage () {
                     />
                   </div>
               ))
-            ) : typeof currentDogs === 'string' ? (
-              <div>
-                <DogFail/>
-              </div>
+            
+              
           ) : (
             <div>
               <Loading />
             </div>
           )}
         </div>
-      
-                
-      </div>
+               
+      </div>)}
     </>
   );
 }

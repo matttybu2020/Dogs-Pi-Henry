@@ -51,16 +51,18 @@ function SearchBar() {
   
 
     return(
-        <div>
-            <input type='text' 
+        <div className="searchbar_container">
+            <input
+            className="searchbar"
+             type='text' 
             placeholder='Buscar...'
             value={name}
             onChange={e => handleChange(e)}
              ></input>
 
 
-            <button type='submit' onClick={handleSubmit} >Buscar</button>
-            <button className="btn" onClick={OnClickAll}>Recargar</button>
+            <button className="searchbar_button" type='submit' onClick={handleSubmit} >Buscar</button>
+            <button className="searchbar_button" onClick={OnClickAll}>Recargar</button>
         </div>
     )
 };

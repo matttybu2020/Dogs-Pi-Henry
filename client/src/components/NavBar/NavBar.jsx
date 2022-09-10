@@ -1,6 +1,6 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
-//import '../NavBar/NavBar.css'
+import '../NavBar/NavBar.css'
 import { NavLink } from 'react-router-dom'
 import Fecha from '../Fecha/Fecha'
 

@@ -18,12 +18,17 @@
     border-radius: 0;
     height: 116%;
     width: 4rem;
-    background-color: #7b8481;
+    background: rgb(242, 244, 250);
+background: linear-gradient(90deg, rgba(12,20,46,1) 0%, rgba(80, 81, 83, 0.457) 25%, rgb(38, 39, 39) 90%);
     /* border-top: 2px solid gray; */
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    color:rgb(246, 234, 234);
 }
 
 .searchbar_button i{
     font-size: 1.3rem;
+}
+.searchbar_button:hover{
+    background-color: rgb(155, 155, 146)
 }

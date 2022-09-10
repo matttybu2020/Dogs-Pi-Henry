@@ -21,7 +21,6 @@ export function AllDogs() {
 export function getTemperaments() {
     return async function (dispatch) {
         const res = await axios.get("http://localhost:3001/temperament"); 
-        
         return dispatch({
             type: GET_TEMPERAMENTS,
             payload: res.data

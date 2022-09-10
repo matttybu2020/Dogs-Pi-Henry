@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 
 .titApp .contFecha {
-    color: #8795af;
+    color: #0c5df3;
     margin-left: auto;
     margin-right: 20px;
     margin-top: 0;
@@ -16,7 +16,7 @@
 
 .titApp .contFecha .dia {
     font-size: 3vh;
-    border-bottom: 1px solid #c8ccd3;
+    border-bottom: 2px solid #061e49;
 }
 
 .titApp .contFecha .mes {

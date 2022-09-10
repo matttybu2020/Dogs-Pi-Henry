@@ -81,7 +81,7 @@ router.get("/dogs", async(req, res) => {//esta funcion también podra recibir un
     const allDogs = await getAllDogs();
     if (name) {
         const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));//si el perro existe guardame sus parametros aca.
-        dog.length ? res.status(200).send(dog) : res.status(404).send("Dog not found"); 
+        dog.length ? res.status(200).send(dog) : res.status(200).send("No se encontro"); 
     } else {
         res.status(200).send(allDogs);
     }

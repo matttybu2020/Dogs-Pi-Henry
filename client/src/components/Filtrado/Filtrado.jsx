@@ -2,7 +2,7 @@ import React from "react";
 import { useState} from "react";
 import { useDispatch ,useSelector} from "react-redux";
 import { FilterTemperament,OrderName,OrderWeight,FiltradoApiDb } from "../../redux/Action/index";
-
+import "./Filtrado.css"
 
 
 

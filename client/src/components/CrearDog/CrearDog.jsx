@@ -129,9 +129,8 @@ export default function CrearDog() {
           names.push(e.name);
         }
       })
-      
-    );
-    console.log( names)
+      );
+    console.log(names)
     return names;
   };
  // temperaments: [curious,adventure,active]

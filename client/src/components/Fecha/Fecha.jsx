@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Fecha.css";
+
 //import gengar from "../../assets/icon_dog.png";
 //import { NavLink } from "react-router-dom";
-// import '../fecha.js'
+import './Fecha.css'
 
 export default function Fecha() {
   const [dia, setDia] = useState();
@@ -37,7 +37,7 @@ export default function Fecha() {
 
   return (
     
-      <div className={styles.contFecha}>
+      <div className="contFecha">
         <p className="dia">
           {dia + "-"}
           {mes}

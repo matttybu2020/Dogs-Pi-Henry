@@ -1,0 +1,29 @@
+.container_filters{
+    width: 190%;
+    margin-top: 1.3rem;
+    border-radius: 25px;
+}
+
+.container_filters select{
+    padding: 0.5rem 0.9rem;
+    border: none;
+    background: rgb(12,20,46);
+background: linear-gradient(90deg, rgba(12,20,46,1) 0%, rgba(80, 81, 83, 0.457) 25%, rgb(38, 39, 39) 90%);
+    color:rgb(15, 15, 15);
+    text-shadow: whitesmoke;
+    box-shadow: 6px 5px 9px 4px #747575;
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+.container_filters select:first-child{
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+   
+}
+
+.container_filters select:last-child{
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
