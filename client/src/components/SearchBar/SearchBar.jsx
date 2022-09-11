@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch  } from "react-redux";
-//import { connect } from 'react-redux'
+
 import {getBreed,AllDogs ,FilterTemperament} from "../../redux/Action/index"
-//import DogFail from "../DogFail/DogsFail";
+
 
 import "./SearchBar.css"
 

@@ -1,4 +1,4 @@
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE} from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE,DELETE_DOG} from "../Action/constantes"
 
 
 
@@ -132,6 +132,14 @@ const rootReducer = (state = intialState, action) => {
                 ...state,
                 page:action.payload
               }
+              case DELETE_DOG:
+                //const eliminarDb = action.payload === 'Created' ? state.allDogs.filter(i => i.createdInDb) : state.allDogs.filter(i => !i.createdInDb)
+                return{
+                  ...state,
+                 // eliminarDb
+                allDogs : state.allDogs.filter(rec=>rec.id != action.payload),
+                 dogs :state.dogs.filter(rec=>rec.id != action.payload),
+                }
             
                  
                       

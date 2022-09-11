@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB ,SAVE_PAGE} from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB ,SAVE_PAGE,DELETE_DOG} from "../Action/constantes"
 
 //** Me traigo todos los perros */
 
@@ -125,6 +125,20 @@ export function savePage(payload){
 
     }
      
+}
+
+
+//** Elminar Dog */
+
+
+export function deleteDog(id){
+    return async function (dispatch){
+        await axios.delete(`http://localhost:3001/dogs/${id}`)
+        dispatch({
+            type:DELETE_DOG,
+            payload:id
+        })
+    }
 }
     
 

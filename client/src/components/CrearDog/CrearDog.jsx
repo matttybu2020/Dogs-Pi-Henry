@@ -382,7 +382,7 @@ export default function CrearDog() {
 
           <div className="">
             <div className="">
-              <h2>Temperaments</h2>
+              <h2>Temperamentos</h2>
             </div>
 
             <div className="container_temperaments">

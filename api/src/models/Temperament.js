@@ -14,3 +14,9 @@ module.exports = (sequelize) => {
   }, //{ freezeTableName: true }
   );
 };
+/*
+id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },*/ 
