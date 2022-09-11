@@ -81,7 +81,7 @@ router.get("/dogs", async(req, res) => {//esta funcion también podra recibir un
     const allDogs = await getAllDogs();
     if (name) {
         const dog = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));//si el perro existe guardame sus parametros aca.
-        dog.length ? res.status(200).send(dog) : res.status(200).send("No se encontro"); 
+        dog.length ? res.status(200).send(dog) : res.status(200).send("No se encontro raza de perros"); 
     } else {
         res.status(200).send(allDogs);
     }
@@ -168,33 +168,83 @@ router.post("/dog", async (req, res) => {
 router.use(express.json());
 
 
-
-
+//** Error 404*/
+ 
+router.put('*',(_req,res) => {
+    res.status(404).send("no se encontro la pagina")
+})
 
 
 //** Ruta delete prueba beta */
-/*
-router.delete("/dogs/:idRaza", async (req, res, next) => {
+
+router.delete("/dogs/:id", async (req, res, next) => {
     const { id } = req.params;
     try {
       Dog.destroy({ where: { id: id } });
-     
+      res.status(200).send("El Dog se elimino Correctamente!")
     } catch (err) {
       next(err);
-    }})*/
+    }})
+
+
 
 //**ruta put */
 
-//UPDATE
-// router.put('put/:id',(req,res)=>{
-//   await Dog.update({
-//     name,
-//     height
-//   }
-//     where:{
-//       id: req.params.id})
+/*
+ router.put('put/:id',async (req,res)=>{
+    const{id} = req.params 
+    const {
+        name,
+        min_height,
+        max_height,
+        min_weight,
+        max_weight,
+        life_span,
+        temperaments,
+        image
+    }=req.body
 
-//     }).then(result =>{
-//       res.json(result)
-//     })
+
+    try {
+        await Dog.update ({
+            name: name,
+        min_height:min_height,
+        max_height:max_height,
+        min_weight:min_weight,
+        max_weight:max_weight,
+        life_span:life_span,
+        image:image
+        
+                },
+        {
+            where:{
+                id:id,
+            },
+        }
+
+        );
+        return res.status(200).send("Modificacion realizada en Dogs")
+    } catch (error){
+        res.status(404).send("No se Actualizo")
+    }
+
+
+
+    })
+*/
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+ 
 module.exports = router;

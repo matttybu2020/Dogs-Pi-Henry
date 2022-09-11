@@ -4,8 +4,6 @@ import style from './Paginado.module.css'
 export default function Paginado ({dogsPerPage,allDog , paginado, currentPage, beforePage, nextPage}){
    
    
-   
-   
     const numberOfPage = []
  
      const maxPage = 1 + Math.ceil((allDog  - 8) / dogsPerPage)
@@ -26,7 +24,7 @@ export default function Paginado ({dogsPerPage,allDog , paginado, currentPage, b
                         <button className={currentPage === numero ? style.botonSeleccionado : style.boton } onClick={() => paginado(numero)}>{numero}</button>
                      </li>
                  ))}
-             <button className={currentPage === "Proximo" ? style.botonSeleccionado : style.boton} onClick={nextPage}>Proximo</button> 
+             <button className={currentPage === "Proximo" ? style.botonSeleccionado : style.boton} onClick={nextPage}   disabled={currentPage >= numberOfPage.length} >Proximo</button> 
              </ul>
          </nav>
          </div>

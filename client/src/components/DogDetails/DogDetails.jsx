@@ -45,7 +45,7 @@ export default function DogDetails() {
 
     return(
         <>
-        
+        <div className="background3">
         <div className="main_container1">
             {loading ? (
             <div>
@@ -83,7 +83,7 @@ export default function DogDetails() {
         </div> 
 
     
-     
+        </div>
 
         </>
     )  

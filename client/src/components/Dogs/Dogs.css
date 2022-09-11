@@ -22,3 +22,8 @@
 .container_card:hover{
     cursor: pointer;
 }
+
+
+.background1{
+    background-image: url('../../img/2.png');
+}

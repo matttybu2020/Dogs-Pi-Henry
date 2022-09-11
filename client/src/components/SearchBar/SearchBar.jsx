@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch  } from "react-redux";
 //import { connect } from 'react-redux'
-import {getBreed,AllDogs } from "../../redux/Action/index"
+import {getBreed,AllDogs ,FilterTemperament} from "../../redux/Action/index"
 //import DogFail from "../DogFail/DogsFail";
 
 import "./SearchBar.css"
@@ -19,22 +19,15 @@ function SearchBar() {
       function handleChange(e) {
         e.preventDefault()
         setName(e.target.value);
-     
-        console.log(name)
+       console.log(name)
     }
     function handleSubmit(e) {
         e.preventDefault();
-
         if (name.length === 0) {
           return alert ("Vuelva a ingresar de nuevo");
         }else {
-
-        } dispatch(getBreed(name));
+       } dispatch(getBreed(name));
         setName("")
-
-
-
-       
         // despachamos la action con el name el cual es name va ser mi estado local que escribe el usuario
     };
 
@@ -48,7 +41,16 @@ function SearchBar() {
         e.preventDefault()
         dispatch(AllDogs())
     }
-  
+  //** filtrar por temperamento */
+
+  function handleSubmitTemp(e) {
+    e.preventDefault();
+    if (name.length === 0) {
+      return alert ("Vuelva a ingresar de nuevo");
+    }else {
+   } dispatch(FilterTemperament(name));
+    setName("")
+  }
 
     return(
         <div className="searchbar_container">
@@ -59,9 +61,8 @@ function SearchBar() {
             value={name}
             onChange={e => handleChange(e)}
              ></input>
-
-
             <button className="searchbar_button" type='submit' onClick={handleSubmit} >Buscar</button>
+            <button className="searchbar_button" type='submit' onClick={handleSubmitTemp} >Buscar</button>
             <button className="searchbar_button" onClick={OnClickAll}>Recargar</button>
         </div>
     )

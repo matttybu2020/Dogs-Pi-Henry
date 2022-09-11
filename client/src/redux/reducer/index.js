@@ -8,7 +8,9 @@ const intialState = {
   allDogs: [],
   details: [],
   filteredDogs:[],
-  page:1
+  page:1,
+ 
+
 };
 
 const rootReducer = (state = intialState, action) => {
@@ -92,34 +94,6 @@ const rootReducer = (state = intialState, action) => {
               dogs: orderName
           }
 
-
-
-        /*case ORDER_NAME:
-          const ordenName =
-            action.payload === "A-Z"
-              ? state.allDogs.sort((a, b) => {
-                  if (a.name > b.name) {
-                    return 1;
-                  }
-                  if (b.name > a.name) {
-                    return -1;
-                  }
-                  return 0;
-                })
-              : state.allDogs.sort((a, b) => {
-                  if (a.name > b.name) {
-                    return -1;
-                  }
-                  if (b.name > a.name) {
-                    return 1;
-                  }
-                  return 0;
-                });
-          return {
-            ...state,
-            dogs: ordenName,
-          };*/
-    
         case ORDER_WEIGHT:
           const sortedWeight =
             action.payload === "min_weight"
@@ -158,23 +132,7 @@ const rootReducer = (state = intialState, action) => {
                 ...state,
                 page:action.payload
               }
-
-          /*case FILTRADO_API_DB:
-                    if (action.payload === 'default'){
-                        return {...state, filteredDogs: state.allDogs}
-                        }
-                      
-                    if(action.payload === 'DB'){
-                        return {...state, filteredDogs: state.allDogs.filter((dog)=> (typeof dog.id) === 'string')}
-                        }
-                      
-                    if(action.payload === 'API'){
-                        return {...state, filteredDogs: state.allDogs.filter((dog)=> (typeof dog.id) === 'number')}
-                        }
-                        return {...state, filteredDogs: state.allDogs.filter((dog) => {
-                          return dog.temperaments.find((temperaments) => {
-                              return  temperaments === action.payload})
-                      })}*/
+            
                  
                       
 

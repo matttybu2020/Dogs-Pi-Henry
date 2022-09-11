@@ -113,3 +113,7 @@
       list-style: none;
       padding: 0.2rem 0.4rem;
   }
+
+  .background3{
+    background-image: url('../../img/3.png');
+}

@@ -3,33 +3,81 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getTemperaments, postCrearDog } from "../../redux/Action/index";
-
+import { useHistory } from "react-router-dom";
 import "./CrearDog.css";
 
 const validate = (form) => {
+ //var ExpRegSoloNumeros="^[0-9]+$";
+ // var ExpRegLetrasEspacio="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
+
   let errors = {};
   if (!form.name) {
     errors.name = "El nombre es obligatorio, no debe contener números";
   }
+
+// var RegLetrasEspacio="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
+
+ /* if (!form.name) {
+    errors.name = "El nombre es obligatorio";
+  } else if (RegLetrasEspacio.test(form.name)) {
+    errors.name = "no puede ingresar atributos";
+  }
+*/
+
   if (!form.min_height || !form.max_height) {
     errors.height = "Se requiere altura";
   }
+
   if (!form.min_weight || !form.max_weight) {
     errors.weight = "Se requiere peso";
   }
-  if (!form.life_span) {
+
+if (!form.min_height) {
+  errors.min_height = "Height is required";
+} else if (!/\d{1,2}-\d{1,2}/g.test(form.min_height)) {
+  errors.min_height = "Add a height range. Example: '10-12'";
+}
+if (!form.max_height) {
+  errors.max_height= "Height is required";
+} else if (!/\d{1,2}-\d{1,2}/g.test(form.max_height)) {
+  errors.max_height= "Add a height range. Example: '10-12'";
+}
+if (!form.min_weight) {
+  errors.min_weight = "min_weight is required";
+} else if (!/\d{1,2}-\d{1,2}/g.test(form.min_weight)) {
+  errors.min_weight = "Add a min_weight range. Example: '10-12'";
+}
+
+if (!form.max_weight) {
+  errors.max_weight = "max_weight is required";
+} else if (!/\d{1,2}-\d{1,2}/g.test(form.max_weight)) {
+  errors.max_weight = "Add a max_weight range. Example: '10-12'";
+}
+
+
+ /* if (!form.life_span) {
     errors.life_span =
       "tiempo de vida es requerido";
   }
+*/
+  if (!form.life_span) {
+    errors.life_span= "Ingrese valor de Promedio de vida";
+  } else if (!/^[1-20]$/.test(form.life_span)) {
+    errors.life_span= "EL valor de vida promedio no puede ser mayor a 20";
+  }
+ 
+
+
   if (form.temperaments.length === 0 ) {
     errors.temperaments = "Añade al menos un temperamento";
   }
-  return errors;
+    return errors;
 };
 
 export default function CrearDog() {
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.temperaments);
+  const history = useHistory();
 
   const [button, setButton] = useState(true);
   const [errors, setErrors] = useState({
@@ -71,8 +119,9 @@ export default function CrearDog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     dispatch(postCrearDog(form));
-    alert("The new dog was added successfully");
+    alert("EL dog se creo Correctamente");
     setForm({
       name: "",
       min_height: "",
@@ -83,6 +132,7 @@ export default function CrearDog() {
       image: "",
       temperaments: [],
     });
+    history.push("/dogs")
   };
 
  
@@ -142,6 +192,7 @@ export default function CrearDog() {
   };
 
   return (
+    <div className="background4">
     <div className="main_wrapper">
       <div className="container">
         <div>
@@ -195,7 +246,7 @@ export default function CrearDog() {
               <div className="max_height">
                 <div className="label">
                   <li>
-                    <label>Altura máxima:</label>
+                    <label>Altura máx:</label>
                   </li>
                 </div>
 
@@ -293,7 +344,7 @@ export default function CrearDog() {
                 value={form.temperaments}
                 name="temperaments"
               >
-                <option disabled selected>
+                <option >
                   Temperaments
                 </option>
                 {temperaments?.map(d => (
@@ -348,6 +399,7 @@ export default function CrearDog() {
           </div>
         </ul>
       </div>
+    </div>
     </div>
   );
 }

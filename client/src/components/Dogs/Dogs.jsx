@@ -96,7 +96,7 @@ export default function Dogs() {
 
 // para next y sigueindte
 const nextPage = () => {
-  
+ 
   setCurrentPage(currentPage + 1)
 }
 const beforePage = () => {
@@ -110,9 +110,10 @@ function  handleNextpage () {
 
 }
 
-console.log(allDog)
+//console.log(allDog)
   return (
     <>
+    <div className="background1">
       <NavBar />
       <SearchBar />
       <Filtrado />
@@ -135,14 +136,15 @@ console.log(allDog)
         <div className="container_cards">
           {currentDogs.length ? ( currentDogs.map((el) => (<div className="container_card" key={el.id}>
             <Link onClick={(e)=>handleNextpage(e)} to={"/dogdetail/" + el.id}> 
-                <button>Detalles</button>
-                </Link>
+                
+                
                     <Dog
                       key={el.id}
                       image={el.image}
                       name={el.name}
                       temperaments={el.temperaments[0].name ? el.temperaments.map((el) => el.name): el.temperaments}
                     />
+                    </Link>
                   </div>
               ))
             
@@ -155,6 +157,7 @@ console.log(allDog)
         </div>
                
       </div>)}
+      </div>
     </>
   );
 }

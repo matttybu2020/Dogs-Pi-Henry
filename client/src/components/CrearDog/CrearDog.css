@@ -1,12 +1,12 @@
 .main_wrapper{
     display: flex;
     justify-content: center;
-    background-color: #0b0b0b;
+    
 }
 
 .container{
     width:auto;
-    background-color: #7b7979;
+    
     background-size: 50%;
     display: grid;
     gap: 10px;
@@ -203,4 +203,6 @@ form{
     text-align: center;
     justify-content: center;
   }
-  
+  .background4{
+    background-image: url('../../img/4.png');
+}
