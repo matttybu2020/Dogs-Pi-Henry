@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector ,} from "react-redux";
 import { Link } from "react-router-dom";
-import { AllDogs, getTemperaments,savePage } from "../../redux/Action/index";
+import { AllDogs, getTemperaments,savePage,clearDetail } from "../../redux/Action/index";
 import Dog from "../Dog/Dog.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import NavBar from "../NavBar/NavBar";
@@ -24,14 +24,14 @@ export default function Dogs() {
   const allTemperaments = useSelector((state) => state.temperaments);
   const todosDogs = useSelector((state) => state.allDogs);
   const page1 = useSelector((state) => state.page)
-  
+  const [currentPage, setCurrentPage] = useState(page1);  
   //const [currentPage, setCurrentPage] = useState(page1)
  // const dogsPerPage = 8;
   //const lastIndex = currentPage * dogsPerPage; 
  //const firstIndex = lastIndex - dogsPerPage;
   //const currentDogs = allDog.slice(firstIndex, lastIndex);//elementos a renderizar en la pagina, segun el valor de paginado
   //const miStorage = window.localStorage ;
-  const [currentPage, setCurrentPage] = useState(page1);    // estado local con un array de dos posiciones una el estado y el otro el metodo
+    // estado local con un array de dos posiciones una el estado y el otro el metodo
    //const [currentPage, setCurrentPage] = useLocalStorage("currentPage", " "); 
  const [dogsPerPage] = useState(8);
   const indexLastDogs = currentPage === 1 ? 8 : currentPage * dogsPerPage - 1;
@@ -73,12 +73,17 @@ export default function Dogs() {
       //AllDogs()
       dispatch(AllDogs())
     }
+     
     let lastPage = 1 + Math.ceil(allDog.length / dogsPerPage);
     if (currentPage > lastPage) {
       setCurrentPage(1);
     }
     dispatch(getTemperaments());
-   //getTemperaments()
+  
+   /* return () => {
+      dispatch(clearDetail());
+    };*/
+
   }, [
     allDog.length,
     todosDogs.length,
@@ -94,7 +99,7 @@ export default function Dogs() {
     
 
 
-// para next y sigueindte
+// para next y siguiente
 const nextPage = () => {
  
   setCurrentPage(currentPage + 1)
@@ -136,9 +141,7 @@ function  handleNextpage () {
         <div className="container_cards">
           {currentDogs.length ? ( currentDogs.map((el) => (<div className="container_card" key={el.id}>
             <Link onClick={(e)=>handleNextpage(e)} to={"/dogdetail/" + el.id}> 
-                
-                
-                    <Dog
+                   <Dog
                       key={el.id}
                       image={el.image}
                       name={el.name}
@@ -147,9 +150,7 @@ function  handleNextpage () {
                     </Link>
                   </div>
               ))
-            
-              
-          ) : (
+            ) : (
             <div>
               <Loading />
             </div>

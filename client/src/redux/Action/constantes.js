@@ -22,3 +22,4 @@ export const SAVE_PAGE = "SAVE_PAGE"
 
 export const DELETE_DOG ="DELETE_DOG"
 
+export const CLEAR_DETAIL="CLEAR_DETAIL"

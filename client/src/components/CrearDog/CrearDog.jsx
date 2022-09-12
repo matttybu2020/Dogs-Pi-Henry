@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getTemperaments, postCrearDog } from "../../redux/Action/index";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import "./CrearDog.css";
 
 const validate = (form) => {
@@ -13,6 +13,14 @@ const validate = (form) => {
   let errors = {};
   if (!form.name) {
     errors.name = "El nombre es obligatorio, no debe contener números";
+  }else if (form.name.length < 2 || form.name.trim().length === 0)
+
+
+  
+  
+  
+  {
+    errors.name = "EL Nombre del Dog no Puede ser Menor a 2 Caracteres!!!"
   }
 
 // var RegLetrasEspacio="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
@@ -24,36 +32,38 @@ const validate = (form) => {
   }
 */
 
-  if (!form.min_height || !form.max_height) {
+  if (!form.min_height || !form.max_height  || form.max_height.trim().length === 0) {
     errors.height = "Se requiere altura";
-  }
 
+  }else if (!/\d{1,2}-\d{1,2}/g.test(form.min_height)) {
+  errors.min_height = "el valor de la Altura esta mal";
+  }
   if (!form.min_weight || !form.max_weight) {
-    errors.weight = "Se requiere peso";
+    errors.weight = "Se requiere Peso";
   }
-
+/*
 if (!form.min_height) {
-  errors.min_height = "Height is required";
+  errors.min_height = "Se requiere altura min ";
 } else if (!/\d{1,2}-\d{1,2}/g.test(form.min_height)) {
-  errors.min_height = "Add a height range. Example: '10-12'";
+  errors.min_height = "altura min ";
 }
 if (!form.max_height) {
-  errors.max_height= "Height is required";
+  errors.max_height= "Se requiere altura max";
 } else if (!/\d{1,2}-\d{1,2}/g.test(form.max_height)) {
-  errors.max_height= "Add a height range. Example: '10-12'";
+  errors.max_height= "altura max ";
 }
 if (!form.min_weight) {
-  errors.min_weight = "min_weight is required";
+  errors.min_weight = "Se requiere peso min";
 } else if (!/\d{1,2}-\d{1,2}/g.test(form.min_weight)) {
-  errors.min_weight = "Add a min_weight range. Example: '10-12'";
+  errors.min_weight = " peso min";
 }
 
 if (!form.max_weight) {
-  errors.max_weight = "max_weight is required";
+  errors.max_weight = "Se requiere peso max";
 } else if (!/\d{1,2}-\d{1,2}/g.test(form.max_weight)) {
   errors.max_weight = "Add a max_weight range. Example: '10-12'";
 }
-
+*/
 
  /* if (!form.life_span) {
     errors.life_span =
@@ -62,10 +72,14 @@ if (!form.max_weight) {
 */
   if (!form.life_span) {
     errors.life_span= "Ingrese valor de Promedio de vida";
-  } else if (!/^[1-20]$/.test(form.life_span)) {
+  } else if (!/^[0-9]{1,2}$/.test(form.life_span)) {
     errors.life_span= "EL valor de vida promedio no puede ser mayor a 20";
   }
- 
+ if(!form.image){
+  errors.image = "Se requiere una imagen";
+ }else if (/^https:/.test(form.image)=== false){
+  errors.image = "Url de imagen invalida"
+ }
 
 
   if (form.temperaments.length === 0 ) {
@@ -77,7 +91,7 @@ if (!form.max_weight) {
 export default function CrearDog() {
   const dispatch = useDispatch();
   const temperaments = useSelector((state) => state.temperaments);
-  const history = useHistory();
+ // const history = useHistory();
 
   const [button, setButton] = useState(true);
   const [errors, setErrors] = useState({
@@ -132,7 +146,7 @@ export default function CrearDog() {
       image: "",
       temperaments: [],
     });
-    history.push("/dogs")
+    //history.push("/dogs")
   };
 
  

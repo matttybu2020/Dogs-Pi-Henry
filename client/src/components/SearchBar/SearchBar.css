@@ -19,7 +19,7 @@
     height: 116%;
     width: 4rem;
     background: rgb(242, 244, 250);
-background: linear-gradient(90deg, rgba(12,20,46,1) 0%, rgba(80, 81, 83, 0.457) 25%, rgb(38, 39, 39) 90%);
+    background: rgb(12,20,46);
     /* border-top: 2px solid gray; */
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;

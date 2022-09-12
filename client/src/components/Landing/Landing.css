@@ -1,8 +1,38 @@
 
-    
 .background{
     width: 100vw;
     height: 100vh;
-    background-image: url('../../img/1.png');
-    background-size: 100%;
+    background-image: url('https://www.mascotahogar.com/1920x1080/wallpaper-de-un-perro-pequeno.jpg');
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    padding-top: 1rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+
 }
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.landing_containe{
+    width: 100%;
+    height: 100%;
+}
+.titulo_landing{
+
+    background-color: #ffff;
+    color: black;
+    font-weight: bold;
+    font-size: 3rem;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    
+
+}
+

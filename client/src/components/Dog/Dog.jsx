@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 
 export default function Card({ image, name, temperaments,id }) {
   return (
+    
     <div className="main_container">
       <div className="image_container">
-        <img  src={`${image}`} alt={`imagen de: ${name}`}/>
+        <img className="img" src={`${image}`} alt={`imagen de: ${name}`}/>
       </div>
+      <div>
       <h2>{name}</h2>
+      </div>
+    
       <div className="temperaments_container">
         {
         temperaments.map((temps) => <h3 key={temps+Math.random}>{temps}</h3>)
@@ -24,5 +28,6 @@ export default function Card({ image, name, temperaments,id }) {
         )}
       </div>
     </div>
+  
   );
 }

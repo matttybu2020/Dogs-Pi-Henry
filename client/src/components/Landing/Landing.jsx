@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import "./Landing.css"
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Landing.css";
 
-export default function Landing(){
-    return(
-        <div className='background'>
-            <Link to="/dogs">
-            <h1>Soy Landing</h1>
-            </Link>
-            
-        </div>
-    ) 
-        
-    
+export default function Landing() {
+  return (
+    <div className="landing_container">
+      <div className="background">
+
+        <Link to="/dogs">
+          <p className="titulo_landing">Welcome Dogs</p>
+        </Link>
+      </div>
+    </div>
+  );
 }

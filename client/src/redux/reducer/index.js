@@ -1,4 +1,5 @@
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE,DELETE_DOG} from "../Action/constantes"
+         
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE,DELETE_DOG,CLEAR_DETAIL } from "../Action/constantes"
 
 
 
@@ -9,6 +10,7 @@ const intialState = {
   details: [],
   filteredDogs:[],
   page:1,
+  deleteDogs:[]
  
 
 };
@@ -133,14 +135,21 @@ const rootReducer = (state = intialState, action) => {
                 page:action.payload
               }
               case DELETE_DOG:
-                //const eliminarDb = action.payload === 'Created' ? state.allDogs.filter(i => i.createdInDb) : state.allDogs.filter(i => !i.createdInDb)
+                const eliminardog = state.dogs.filter(el => el.id !== action.payload)
                 return{
                   ...state,
+                  allDogs:eliminardog
                  // eliminarDb
-                allDogs : state.allDogs.filter(rec=>rec.id != action.payload),
-                 dogs :state.dogs.filter(rec=>rec.id != action.payload),
+                 //deleteDogs : state.deleteDogs.filter(rec=>rec.id != action.payload),
+                 //dogs :state.dogs.filter(rec=>rec.id != action.payload),
                 }
-            
+                case CLEAR_DETAIL:
+                                            return {
+                                                ...state,
+                                                dogs: action.payload,
+                                                detail: action.payload,
+                                                deleteDogs: action.payload
+                                            }
                  
                       
 

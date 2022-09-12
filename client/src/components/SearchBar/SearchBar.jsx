@@ -23,7 +23,7 @@ function SearchBar() {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        if (name.length === 0) {
+        if (name.length === 0 || name.trim().length === 0  ) {
           return alert ("Vuelva a ingresar de nuevo");
         }else {
        } dispatch(getBreed(name));
