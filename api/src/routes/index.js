@@ -167,7 +167,7 @@ router.use(express.json());
 
 //** Ruta delete prueba beta */
 
-router.delete("/dogs/:id", async (req, res, next) => {
+/*router.delete("/dogs/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
     Dog.destroy({ where: { id: id } });
@@ -175,8 +175,8 @@ router.delete("/dogs/:id", async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-});
-
+});*/
+/*
 router.put("/dogdetail/:id", async (req, res) => {
   const { id } = req.params;
   const {
@@ -212,12 +212,12 @@ router.put("/dogdetail/:id", async (req, res) => {
   } catch (error) {
     res.status(404).send("No se Actualizo");
   }
-});
+});*/
 
 //** Error 404*/
-
+/*
 router.all("*", (_req, res) => {
   res.status(404).send("no se encontro la pagina");
-});
+});*/
 
 module.exports = router;

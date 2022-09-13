@@ -109,10 +109,13 @@ export function FiltradoApiDb(payload) {
   
 
 export function postCrearDog(payload) {
+    
     return async function () {
-        const data = await axios.post("http://localhost:3001/dog", payload); 
+        const data = await axios.post("http://localhost:3001/dog",payload); 
         return data;
+       
     }
+  
 }
 
 //** estado global por paginado */
