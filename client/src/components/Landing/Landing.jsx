@@ -8,7 +8,7 @@ export default function Landing() {
       <div className="background">
 
         <Link to="/dogs">
-          <p className="titulo_landing">Welcome Dogs</p>
+        <button className="boton"> Welcome Dogs </button>
         </Link>
       </div>
     </div>

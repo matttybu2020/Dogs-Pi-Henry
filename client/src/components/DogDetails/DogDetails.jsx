@@ -80,12 +80,12 @@ function OnClickeDelete(e){
                         
                         
                         <div className="right_container">
-                            <h1>{nameDog}</h1>
-                            <h3>{`Height: ${heightDog && heightDog[0]} - ${heightDog && heightDog[1]} CM`}</h3>
-                            <h3>{`Weight: ${heightDog &&  weightDog[0]} - ${weightDog && weightDog[1]} KG`}</h3>
-                            <h3>{`Lifespan: ${lifeSpanDog}`}</h3>
+                            <h1>🐕{nameDog}</h1>
+                            <h3>🦴{`Height: ${heightDog && heightDog[0]} - ${heightDog && heightDog[1]} CM`}</h3>
+                            <h3>💪{`Weight: ${heightDog &&  weightDog[0]} - ${weightDog && weightDog[1]} KG`}</h3>
+                            <h3>❤️{`Lifespan: ${lifeSpanDog}`}</h3>
                             <div>
-                                <h3>Temperaments</h3>
+                                <h3>🦴🐶Temperaments</h3>
                                 <ul className="list_container">
                                     {temperamentDog.map(t => <li key={t}>{t}</li>)}
                                 </ul>

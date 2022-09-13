@@ -10,6 +10,11 @@ import Linkedin from "../../img/Linkedin.gif";
 export default function About() {
   return (
     <>
+    <div className="caja">
+
+
+
+    
       <NavBar />
 
       <div className="con-about">
@@ -31,6 +36,7 @@ export default function About() {
             <img className="imgLink" src={Linkedin} alt="lol" />
           </a>
         </div>
+      </div>
       </div>
     </>
   );

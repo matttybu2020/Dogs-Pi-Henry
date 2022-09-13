@@ -37,3 +37,6 @@ background: linear-gradient(90deg, rgb(58, 59, 62) 0%, rgba(104, 106, 108, 0.457
     width: 100px;
     height: 100px;
  }
+ .caja{
+    background-image: url('../../img/about.png');
+ }

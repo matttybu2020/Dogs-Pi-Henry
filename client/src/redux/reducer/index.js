@@ -72,10 +72,10 @@ const rootReducer = (state = intialState, action) => {
         case ORDER_NAME:
           const orderName = action.payload === 'Asc' ? //compara y ordena izq y derecha
           state.dogs.sort(function(a, b) { // sort metodo de ordenamiento 
-              if(a.name > b.name) {  // compara el valor y retorna esa posicion
+              if(a.name.toLowerCase()> b.name.toLowerCase()) {  // compara el valor y retorna esa posicion
                   return 1;
               }
-              if(b.name > a.name) {
+              if(b.name.toLowerCase() > a.name.toLowerCase()) {
                   return -1;
               }
               return 0;       // si son iguales los deja como esta
@@ -83,10 +83,10 @@ const rootReducer = (state = intialState, action) => {
 
           //Descendente
           state.dogs.sort(function(a, b) {
-              if(a.name > b.name) {
+              if(a.name.toLowerCase() > b.name.toLowerCase()) {
                   return -1;
               }
-              if(b.name > a.name) {
+              if(b.name.toLowerCase() > a.name.toLowerCase()) {
                   return 1;
               }
               return 0;
