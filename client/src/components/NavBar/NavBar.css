@@ -10,13 +10,13 @@
     padding: 10px;
     margin: 20px;
     border-radius: 25px;
-    background: rgb(12,20,46);
+    background: rgb(59, 65, 74);
     color:white;
-    box-shadow: 6px 5px 9px 4px #747575;
+    box-shadow: 6px 5px 9px 4px #1a1a1b;
     font-size: 23px
 }
 .navbar-div button:hover {
-    background-color: rgb(8, 8, 8);
+    background-color: rgb(59, 65, 74);
     color:rgb(220, 243, 241);
     transform: translate(-1%, 75%);
     transition: 0.3s ease-in;

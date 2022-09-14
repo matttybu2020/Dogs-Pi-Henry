@@ -1,8 +1,11 @@
 .searchbar_container{
-    height: 30px;
-    width: 20%;
+    height: 100%;
+    width: auto;
+    padding: 2rem 0;
+    display: flex;
+    gap:1rem;
+    justify-content: center;
 }
-
 .searchbar{
     height: 100%;
     width: 47%;
@@ -10,25 +13,32 @@
     border: 1px solid #0b0b0b;
     border-top: none;
     outline: none;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    text-align: center;
+    -webkit-box-shadow: 9px 7px 11px 8px rgba(0,0,0,0.84); 
+    box-shadow: 9px 7px 11px 8px rgba(0,0,0,0.84);
 }
-
 .searchbar_button{
     border-radius: 0;
-    height: 116%;
-    width: 4rem;
+    height: 100%;
+    width: 15%;
+    font-size: 1.5rem;
     background: rgb(242, 244, 250);
     background: rgb(12,20,46);
     /* border-top: 2px solid gray; */
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 10px;
     color:rgb(246, 234, 234);
+    padding: 0.5rem 0;
+    -webkit-box-shadow: 9px 7px 11px 8px rgba(0,0,0,0.84); 
+    box-shadow: 9px 7px 11px 8px rgba(0,0,0,0.84);
 }
-
 .searchbar_button i{
     font-size: 1.3rem;
 }
 .searchbar_button:hover{
     background-color: rgb(155, 155, 146)
+}
+.diseable{
+    display:none
 }

@@ -37,7 +37,7 @@ export default function Fecha() {
 
   return (
     
-      <div className="contFecha">
+      <div className="fecha">
         <p className="dia">
           {dia + "-"}
           {mes}

@@ -1,19 +1,24 @@
 .container_filters{
     width: 100%;
-    margin-top: 2rem;
+    margin: 2rem 0;
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+
+
 }
 
 .container_filters select{
-    padding: 0.5rem 0.9rem;
+    padding: 0.5rem;
     border: none;
-    background: rgb(218, 221, 230);
-
+    background: rgb(216, 210, 210);
     box-shadow: 6px 5px 9px 4px #747575;
     font-size: 23px;
-
     cursor: pointer;
+
 }
+
 
 .container_filters select:first-child{
     border-top-left-radius: 12px;
@@ -24,4 +29,16 @@
 .container_filters select:last-child{
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
+}
+
+
+.container_filters select option{
+    text-align: center;
+    padding: 0.5rem 0;
+    background-color: white;
+    text-align: center;
+}
+
+.container_filters select option:hover{
+background-color: #138d8d;
 }

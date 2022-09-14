@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch  } from "react-redux";
 
-import {getBreed,AllDogs ,FilterTemperament} from "../../redux/Action/index"
+import {getBreed,AllDogs,FilterTemperament} from "../../redux/Action/index"
 
 
 import "./SearchBar.css"
@@ -62,7 +62,7 @@ function SearchBar() {
             onChange={e => handleChange(e)}
              ></input>
             <button className="searchbar_button" type='submit' onClick={handleSubmit} >Buscar</button>
-            <button className="searchbar_button" type='submit' onClick={handleSubmitTemp} >Buscar</button>
+            <button  className="searchbar_button diseable" type='submit' onClick={handleSubmitTemp} >Buscar</button>
             <button className="searchbar_button" onClick={OnClickAll}>Recargar</button>
         </div>
     )

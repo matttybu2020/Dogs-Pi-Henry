@@ -9,6 +9,10 @@ import "./CrearDog.css";
 
 
 const validate = (form) => {
+
+
+
+
   let errors = {}
 
 //! Validacion Nombres de razas  
@@ -26,42 +30,35 @@ const validate = (form) => {
   if(!form.min_height ) {
       errors.min_height = "Este campo es obligatorio"
     
-  }else if (!/^[0-9]$/.test(form.min_height)){
+  }else if (!/^([0-9]){1,2}$/.test(form.min_height)){
     errors.min_height = "Formato no valido"
   }else if (form.min_height.trim().length === 0){
     errors.min_height = "No debe contener espacios"
   }else if (!/^.{0,3}$/.test(form.min_height)){
     errors.min_height = "Limite de caracter"
-  }else if (!/^.[0-9]+$/.test(form.min_height)){
-    errors.min_height = ("No permite Letras")
   }
 
 //! Validacion Max altura
 
 if(!form.max_height ) {
   errors.max_height = "Este campo es obligatorio"
-}else if (!/^[0-9]$/.test(form.min_height)){
+}else if (!/^([0-9]){1,2}$/.test(form.min_height)){
 errors.max_height = "Formato no valido"
 }else if (form.max_height.trim().length === 0){
 errors.max_height = "No debe contener espacios"
 }else if (!/^.{0,3}$/.test(form.max_height)){
 errors.max_height = "Limite de caracter"
-}else if (!/^.[0-9]+$/.test(form.min_height)){
-  errors.max_height = ("No permite Letras")
 }
-
 //! Validacion Min Peso
 
 if(!form.min_weight ) {
   errors.min_weight = "Este campo es obligatorio"
-}else if (!/^[0-9]$/.test(form.min_height)){
+}else if (!/^([0-9]){1,2}$/.test(form.min_height)){
 errors.min_weight = "Formato no valido"
 }else if (form.min_weight.trim().length === 0){
 errors.min_weight = "No debe contener espacios"
 }else if (!/^.{0,3}$/.test(form.min_weight)){
 errors.min_weight = "Limite de caracter"
-}else if (!/^.[0-9]+$/.test(form.min_height)){
-  errors.min_weight = ("No permite Letras")
 }
 
 
@@ -69,14 +66,12 @@ errors.min_weight = "Limite de caracter"
 
 if(!form.max_weight ) {
   errors.max_weight = "Este campo es obligatorio"
-}else if (!/^[0-9]$/.test(form.min_height)){
+}else if (!/^([0-9]){1,2}$/.test(form.min_height)){
 errors.max_weight = "Formato no valido"
 }else if (form.max_weight.trim().length === 0){
 errors.max_weight = "No debe contener espacios"
 }else if (!/^.{0,3}$/.test(form.max_weight)){
 errors.max_weight = "Limite de caracter"
-}else if (!/^.[0-9]+$/.test(form.min_height)){
-  errors.max_weight = ("No permite Letras")
 }
 
 //! Validacion life_span
@@ -95,10 +90,6 @@ else if (!/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*
 }
 
 
-
-
-  
-  
   return errors
 }
 
@@ -233,15 +224,15 @@ export default function CrearDog() {
     <div className="background4">
     <div className="main_wrapper">
       <div className="container">
-        <div>
+        <div className="buttongo">
           <Link to="/dogs">
             <button className="button_to_home">Go home</button>
           </Link>
         </div>
 
         <ul>
-          <div className="label">
-            <h3>Crear Perro</h3>
+          <div className="">
+            <h3 className="label">Crear Perro</h3>
           </div>
           <br />
           <form action="" id="form" onSubmit={handleSubmit} className="form">
@@ -431,7 +422,7 @@ export default function CrearDog() {
           </form>
 
           <div className="">
-            <div className="">
+            <div className="Temperamentostitle">
               <h2>Temperamentos</h2>
             </div>
 

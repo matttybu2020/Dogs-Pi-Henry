@@ -6,19 +6,21 @@ a{
 .main_container{
     font-size: 0.7rem;
     text-decoration: none;
+    text-align: center;
     max-height: 50vh;
     overflow: hidden;
     color: #121111;
-    position: relative;
+    padding-bottom: 1rem;
 }
 
 .main_container:hover{
   cursor: pointer; 
+
 }
 
 .main_container::before{
     content: "";
-    position: absolute;
+ 
 }
 
 .main_container:hover::before{
@@ -40,12 +42,13 @@ a{
 .image_container img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
-
-.img{
+    padding-top: 1rem;
+    object-fit: fill;
+    border-radius: 20px;
+    
     
 }
+
 
 .main_container h2{
     color: white;
@@ -71,3 +74,25 @@ a{
 button {
     cursor: pointer;
 }
+
+.main_containers:hover {
+    animation: myAnim 1s ease 0s 1 normal forwards;;
+    cursor: pointer;
+}
+
+
+    @keyframes myAnim {
+        0% {
+          transform: scale(1);
+        }
+      
+        50% {
+          transform: scale(1.1);
+        }
+      
+        100% {
+          transform: scale(1);
+        }
+      }
+    
+    

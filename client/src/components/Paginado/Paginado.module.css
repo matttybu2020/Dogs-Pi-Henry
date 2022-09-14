@@ -1,9 +1,14 @@
 .padre{
     /* background: linear-gradient(to right, #352fa7, #fceabb); */
     display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 3rem;
+
 }
 .nav{
-width: 100%;
+width: 80%;
+margin: 0 auto;
 }
 
 .ul{
@@ -46,7 +51,7 @@ width: 100%;
     float: left;
     padding: 5px 12px;
     text-decoration: none;
-    background-color: rgb(83, 83, 82);
+    background-color: rgb(59, 65, 74);
     color: rgb(245, 234, 234);
     border-radius: 25px;
     font-size: 22px;
@@ -58,3 +63,10 @@ width: 100%;
 .botonSeleccionado:hover{
     background-color: rgb(83, 83, 82)
 }
+
+@media(max-width:900px) {
+    .padre{
+        margin-bottom: 50%;
+    }
+  }
+    

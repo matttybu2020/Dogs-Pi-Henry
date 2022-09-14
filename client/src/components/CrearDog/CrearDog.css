@@ -1,27 +1,24 @@
 .main_wrapper{
-    display: flex;
-    justify-content: center;
-    
+    width:100%;
+    height: 100%;
+
 }
 
 .container{
-    width:auto;
-    
-    background-size: 50%;
-    display: grid;
-    gap: 10px;
-    width: 1500px;
-    top: 5px;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 100px;
-    padding-right: 100px;
-    padding-bottom: 290px;
-    @media (max-width: 500px) {
-      grid-template-columns: 1fr;
-    }
+ width: 60%;
+ margin:0 auto;
+ padding: 3rem 1rem;
+
+   
    
 }
+.buttongo{
+    width: 100%;
+    padding: 3rem 0;
+
+}
+
+
 
 .button_to_home{
     width: 20%;
@@ -34,7 +31,7 @@
     border: 0.1rem solid #eefaf7;
     outline: 0.1rem solid #d6d7d7;
     text-shadow: 0 0 3px #0b0b0b;
-    background: #b0b6b4;
+    background: #6d706f;
     margin-bottom: 0.7rem;
 
     box-shadow: 5px 3px 5px 0.5px rgba(0,0,0,0.6);
@@ -71,9 +68,15 @@ form{
     align-items: center;
     justify-content: space-between;
     border: 2px solid #353737;
-    background-color: white;
+    box-shadow: 6px 5px 9px 4px #595960;
     padding: 1rem 0;
     border-radius: 15px;
+    -webkit-box-shadow: 13px 10px 15px 0px rgba(0,0,0,0.62);
+    -moz-box-shadow: 13px 10px 15px 0px rgba(0,0,0,0.62);
+    box-shadow: 13px 10px 15px 0px rgba(0,0,0,0.62);
+    background: rgba(255, 254, 254, 0.8);
+
+
 }
 
 .form input{
@@ -100,12 +103,13 @@ form{
     height: 30px;
     width: 100%;
     font-size: 0.9rem;
-    color: rgba(255, 26, 26, 0.5);
-
+    color: red;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0.2rem 0;
+    margin: 0.3rem 2rem;
+
 
 }
 
@@ -196,14 +200,29 @@ form{
     height: 20px;
     border-radius: 20px;
     background-color: rgb(97, 97, 96);
+    color: white;
     font-size: 15px;
     font-weight: bold;
     list-style: none;
     margin-top: 5px;
     text-align: center;
     justify-content: center;
+    padding: 0.4rem 0;
+    margin-bottom: 1rem;
+    box-shadow: 5px 5px 5px 0.5px rgba(0,0,0,0.4);
   }
   .background4{
     background-image: url('../../img/Create.png');
+}
+
+@media(max-width:900px) {
+    .container{
+        width: 90%;
+       
+    }
+    }
+  
+.Temperamentostitle{
+    text-align: center;
 }
 

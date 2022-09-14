@@ -1,5 +1,5 @@
 
-.main_container1{
+.main_container{
     margin: 0 5% 0 5%;
 }
 
@@ -9,6 +9,8 @@
     grid-gap: 5% 0.9%;
     justify-items: center;
     padding: 2rem 0 2rem 0;
+    margin-top: 3rem;
+
 }
 
 .container_card{ /* estilos de carta individual */
@@ -16,8 +18,7 @@
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     width: 92.5%;
     border-radius: 15px;
-    overflow: hidden;
-    position: relative;
+ 
     -webkit-box-shadow: 5px 5px 8px 5px #000000; 
     box-shadow: 5px 5px 8px 5px #000000;
    
@@ -33,22 +34,40 @@
     background-image: url('../../img/Home.png');
 }
 
-.container_card_animado{
-    animation: myAnim 1s ease 0s 2 normal forwards;;
-    cursor: pointer;
-  
-}
 
-@keyframes myAnim {
-    0% {
-      transform: scale(1);
-    }
-  
-    50% {
-      transform: scale(1.1);
-    }
-  
-    100% {
-      transform: scale(1);
+
+  @media(max-width:700px) {
+    .container_cards{
+        grid-template-columns: auto auto;
     }
   }
+  @media(max-width:900px) {
+    .container_cards{
+        grid-template-columns: auto auto;
+    }
+  }
+  
+
+
+
+  .container_card:hover {
+    animation: myAnim 1s ease 0s 1 normal forwards;;
+    cursor: pointer;
+}
+
+
+    @keyframes myAnim {
+        0% {
+          transform: scale(1);
+        }
+      
+        50% {
+          transform: scale(1.1);
+        }
+      
+        100% {
+          transform: scale(1);
+        }
+      }
+    
+    
