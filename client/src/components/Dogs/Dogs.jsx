@@ -25,12 +25,14 @@ export default function Dogs() {
   const allTemperaments = useSelector((state) => state.temperaments);
   const todosDogs = useSelector((state) => state.allDogs);
   const page1 = useSelector((state) => state.page);
+
   const [currentPage, setCurrentPage] = useState(page1);
+
   //const [currentPage, setCurrentPage] = useState(page1)
   // const dogsPerPage = 8;
   //const lastIndex = currentPage * dogsPerPage;
   //const firstIndex = lastIndex - dogsPerPage;
-  //const currentDogs = allDog.slice(firstIndex, lastIndex);//elementos a renderizar en la pagina, segun el valor de paginado
+  //const currentDogs = allDog.slice(indexFirstDogs, indexLastDogs);//elementos a renderizar en la pagina, segun el valor de paginado
   //const miStorage = window.localStorage ;
   // estado local con un array de dos posiciones una el estado y el otro el metodo
   //const [currentPage, setCurrentPage] = useLocalStorage("currentPage", " ");
@@ -67,6 +69,11 @@ export default function Dogs() {
     setCurrentPage(numberOfPage);
   };
 
+ /* useEffect(() => {
+    dispatch(AllDogs())
+    dispatch(getTemperaments());
+  }, [dispatch]);*/
+
   useEffect(() => {
     if (allDog.length === 0 || currentDogs.length === 0) {
       //AllDogs()
@@ -78,8 +85,7 @@ export default function Dogs() {
       setCurrentPage(1);
     }
     dispatch(getTemperaments());
-
-    /* return () => {
+    /*return () => {
       dispatch(clearDetail());
     };*/
   }, [
@@ -93,7 +99,7 @@ export default function Dogs() {
   ]);
 
   // para next y siguiente
-  const nextPage = () => {
+ const nextPage = () => {
     setCurrentPage(currentPage + 1);
   };
   const beforePage = () => {
@@ -117,7 +123,7 @@ export default function Dogs() {
           paginado={paginado}
           currentPage={currentPage}
           beforePage={beforePage}
-          nextPage={nextPage}
+           nextPage={nextPage}
         />
         {typeof allDog === "string" ? (
           <div>
@@ -130,22 +136,23 @@ export default function Dogs() {
                 currentDogs.map((el) => (
                   <div className="container_card" key={el.id}>
                     <div className="container_card_animado">
-                    <Link
-                      onClick={(e) => handleNextpage(e)}
-                      to={"/dogdetail/" + el.id}
-                    >
-                      <Dog
-                        key={el.id}
-                        image={el.image}
-                        name={el.name}
-                        temperaments={
-                          el.temperaments[0].name
-                            ? el.temperaments.map((el) => el.name)
-                            : el.temperaments
-                        }
-                      />
-                    </Link>
-                  </div>
+                      <Link
+                        onClick={(e) => handleNextpage(e)}
+                        to={"/dogdetail/" + el.id}
+                      >
+                        <Dog
+                          key={el.id}
+                          image={el.image}
+                          name={el.name}
+                         
+                          temperaments={
+                            el.temperaments[0].name
+                              ? el.temperaments.map((el) => el.name)
+                              : el.temperaments
+                          }
+                        />
+                      </Link>
+                    </div>
                   </div>
                 ))
               ) : (
@@ -160,3 +167,45 @@ export default function Dogs() {
     </>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+/*
+    //acciones a depachar luego de montar el componente
+    
+    useEffect(() => {
+    dispatch(AllDogs())
+    dispatch(getTemperaments());
+  }, [dispatch]);*/
+
+/*
+  if(typeof allDog  === 'string'){
+    currentDogs = allDog
+}else{
+   currentDogs = allDog.slice(indexFirstDogs, indexLastDogs); //elementos a renderizar en la pagina, segun el valor de paginado
+}
+ // console.log(currentDogs)
+  
+  
+*/
+
+//const [currentPage, setCurrentPage] = useState(page1)
+// const dogsPerPage = 8;
+//const lastIndex = currentPage * dogsPerPage;
+//const firstIndex = lastIndex - dogsPerPage;
+//const currentDogs = allDog.slice(firstIndex, lastIndex);//elementos a renderizar en la pagina, segun el valor de paginado

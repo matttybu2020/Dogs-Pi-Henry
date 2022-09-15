@@ -29,6 +29,8 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING(500),
     },
+    
+    
     createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

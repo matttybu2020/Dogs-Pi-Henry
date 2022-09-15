@@ -12,13 +12,16 @@ export default function Card({ image, name, temperaments,id }) {
         <img className="img" src={`${image}`} alt={`imagen de: ${name}`}/>
       </div>
       <div>
-      <h2>{name}</h2>
+      <h2>🐶🦴{name}</h2>
       </div>
-    
+    <div className="caja">
+
+   
       <div className="temperaments_container">
-        {
+       {
         temperaments.map((temps) => <h3 key={temps+Math.random}>{temps}</h3>)
         }
+      </div>
       </div>
       <div className="div-button">
         {id && (

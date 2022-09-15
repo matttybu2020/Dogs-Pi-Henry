@@ -1,74 +1,105 @@
 import React, { useState } from "react";
-import { useDispatch  } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import {getBreed,AllDogs,FilterTemperament} from "../../redux/Action/index"
+import { getBreed, AllDogs, FilterTemperament } from "../../redux/Action/index";
 
-
-import "./SearchBar.css"
-
-
-
+import "./SearchBar.css";
 
 function SearchBar() {
   // hooks
-      const dispatch = useDispatch();
-      const [name, setName] = useState("");  //estado local seteo en stren vacio
-  
-  
-      //** funtion que va value del input por el value del state */
-      function handleChange(e) {
-        e.preventDefault()
-        setName(e.target.value);
-       console.log(name)
-    }
-    function handleSubmit(e) {
-        e.preventDefault();
-        if (name.length === 0 || name.trim().length === 0  ) {
-          return alert ("Vuelva a ingresar de nuevo");
-        }else {
-       } dispatch(getBreed(name));
-        setName("")
-        // despachamos la action con el name el cual es name va ser mi estado local que escribe el usuario
-    };
+  const dispatch = useDispatch();
+  const [name, setName] = useState(""); //estado local seteo en stren vacio
 
-   /* const OnClickAll = () => {
+  //** funtion que va value del input por el value del state */
+  function handleChange(e) {
+    e.preventDefault();
+    setName(e.target.value);
+    console.log(name);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (name.length === 0 || name.trim().length === 0) {
+      return alert("Vuelva a ingresar de nuevo");
+    } else {
+    }
+    dispatch(getBreed(name));
+    setName("");
+    // despachamos la action con el name el cual es name va ser mi estado local que escribe el usuario
+  }
+
+  /* const OnClickAll = () => {
         AllDogs()
         setName({
             buscar: ''
         });
     }*/
-    function OnClickAll(e){
-        e.preventDefault()
-        dispatch(AllDogs())
-    }
+  function OnClickAll(e) {
+    e.preventDefault();
+    dispatch(AllDogs());
+  }
   //** filtrar por temperamento */
 
   function handleSubmitTemp(e) {
     e.preventDefault();
-    if (name.length === 0) {
-      return alert ("Vuelva a ingresar de nuevo");
-    }else {
-   } dispatch(FilterTemperament(name));
-    setName("")
+    if (name.length === 0 || name.trim().length === 0) {
+      return alert("Vuelva a ingresar de nuevo");
+    } else {
+    }
+    dispatch(FilterTemperament(name));
+    setName("");
   }
 
-    return(
-        <div className="searchbar_container">
-            <input
-            className="searchbar"
-             type='text' 
-            placeholder='Buscar...'
-            value={name}
-            onChange={e => handleChange(e)}
-             ></input>
-            <button className="searchbar_button" type='submit' onClick={handleSubmit} >Buscar</button>
-            <button  className="searchbar_button diseable" type='submit' onClick={handleSubmitTemp} >Buscar</button>
-            <button className="searchbar_button" onClick={OnClickAll}>Recargar</button>
-        </div>
-    )
-};
+  return (
+    <div className="searchbar_container">
+      <input
+        className="searchbar"
+        type="text"
+        placeholder="Buscar..."
+        value={name}
+        onChange={(e) => handleChange(e)}
+      ></input>
+      <button className="searchbar_button" type="submit" onClick={handleSubmit}>
+        Buscar
+      </button>
+      <button
+        className="searchbar_button diseable"
+        type="submit"
+        onClick={handleSubmitTemp}
+      >
+        Buscar
+      </button>
+      <button className="searchbar_button" onClick={OnClickAll}>
+        Recargar
+      </button>
+    </div>
+  );
+}
 
 export default SearchBar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,20 +163,6 @@ return (
 
 export default connect(null, {getBreed ,AllDogs})(SearchBar)*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 export default function SearchBar() {
 
@@ -187,7 +204,6 @@ export default function SearchBar() {
 }
 
 */
-
 
 /*
 

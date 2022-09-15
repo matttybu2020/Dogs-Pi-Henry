@@ -130,6 +130,7 @@ router.post("/dog", async (req, res) => {
     life_span,
     temperaments,
     image,
+   
     createdInDb,
   } = req.body;
 
@@ -148,6 +149,7 @@ router.post("/dog", async (req, res) => {
     height: fixedHeight,
     weight: fixedWeight,
     life_span,
+  
     image: image
       ? image
       : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0GSChc9hkoJSDWABu0Mne3Dyj9JBUqFv9oHRqsgkjR36Tf81KcELxwYh1hhHT4qzyrg&usqp=CAU",
@@ -164,6 +166,23 @@ router.post("/dog", async (req, res) => {
 });
 
 router.use(express.json());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //** Ruta delete prueba beta */
 

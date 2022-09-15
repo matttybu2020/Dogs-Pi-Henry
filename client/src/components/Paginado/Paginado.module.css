@@ -51,8 +51,10 @@ margin: 0 auto;
     float: left;
     padding: 5px 12px;
     text-decoration: none;
-    background-color: rgb(59, 65, 74);
-    color: rgb(245, 234, 234);
+    
+    background-color: rgb(236, 229, 229);
+    color: black;
+    box-shadow: 6px 5px 9px 4px #1a1a1b;
     border-radius: 25px;
     font-size: 22px;
     border: 1px solid black;

@@ -1,9 +1,7 @@
 import React from "react";
-//import imagen from "../../img/imagen.gif";
+import imagen from "../../img/imagen.gif";
 import "./About.css";
-
 import NavBar from "../NavBar/NavBar";
-
 import Github from "../../img/Github.gif";
 import Linkedin from "../../img/Linkedin.gif";
 
@@ -12,9 +10,6 @@ export default function About() {
     <>
     <div className="caja">
 
-
-
-    
       <NavBar />
 
       <div className="con-about">
@@ -23,7 +18,7 @@ export default function About() {
         <p>"Un perro te enseñará lo que es el amor incondicional"</p>
         <h1>Gonzalez Matias Enrique 🧑‍💻</h1>
         <div className="div-foto">
-          <img  alt="foto"></img>
+          <img  alt="foto" src={imagen}></img>
         </div>
         <div className="homeLinks">
           <a href="https://github.com/matttybu2020" target="_blank">
