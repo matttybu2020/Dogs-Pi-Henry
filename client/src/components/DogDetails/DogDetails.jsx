@@ -1,9 +1,9 @@
 import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { detailsDogs,deleteDog,clearDetail } from "../../redux/Action/index";
+import { detailsDogs,clearDetail,deleteDog } from "../../redux/Action/index";
 import { Link } from "react-router-dom";
-//import Loading from "../Loading/Loading.jsx"
+
 import loading2 from "../../img/loading2.gif"
  import "./DogDetails.css";
  import { useHistory } from "react-router-dom";
@@ -11,18 +11,22 @@ import loading2 from "../../img/loading2.gif"
 export default function DogDetails() {
     const dispatch = useDispatch();
     const allDog = useSelector((state) => state.dogs);
-    
+  
     let { id } = useParams();
     const history = useHistory();
     const [loading, setLoading] = useState(true); //para poder crear el loading de carga
     const details = useSelector((state) => state.details)
+    
+    
+    
+    
     useEffect(() => {
         dispatch(detailsDogs(id));
         
-       setTimeout(() => {
+      setTimeout(() => {
             setLoading(false);
           },1000);
-        /* return (() => {
+        /*return (() => {
             dispatch(clearDetail());
           })*/
     }, [dispatch, id]);
@@ -50,7 +54,6 @@ export default function DogDetails() {
         }
     };
 
-
 //** eliminar por id */
 
 function OnClickeDelete(e){
@@ -61,18 +64,21 @@ function OnClickeDelete(e){
     
 }
 
+
+
     return(
         <>
         <div className="background3">
         <div className="main_container1">
         <span>  {allDog[0].createdInDb && 
         <button className="searchbar_button" onClick={OnClickeDelete}>Eliminar</button>} </span>
-            {loading ? (
+       
+            {loading ? ( 
             <div>
                <img className="LaImagen" src={loading2} alt="" />
 
             </div>
-            ):(
+           ):(
             <div className="sub_container">
                     <div className="container_elements">
 
@@ -111,3 +117,25 @@ function OnClickeDelete(e){
    
 }
 
+
+
+
+
+/*
+
+const allDog = useSelector((state) => state.dogs);
+const history = useHistory();*/
+
+
+
+//** eliminar por id */
+/*
+function OnClickeDelete(e){
+    e.preventDefault()
+    dispatch(deleteDog(id))
+    alert("Eliminado")
+    history.push("/dogs")
+    
+}*/
+
+            

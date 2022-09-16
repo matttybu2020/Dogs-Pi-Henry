@@ -13,6 +13,10 @@ export default function Filtrado(){
     const dispatch = useDispatch();
     const allTemperaments = useSelector(state => state.temperaments);
     const [orden, setOrden] = useState("");
+    //const page1 = useSelector((state) => state.page);
+
+
+
 
     const FilterTemperaments = (e) => {
         e.preventDefault();    
@@ -44,7 +48,7 @@ function handleCreated(e) {
     return(
         <div className="container_filters">
         <select onChange={OrderByNames}>
-          <option >
+          <option disabled selected defaultValue>
            Orden Alfabetico
           </option>
           <option value="A-Z">A-Z</option>
@@ -52,7 +56,7 @@ function handleCreated(e) {
         </select>
 
         <select onChange={OrderByWeights}>
-          <option >
+          <option disabled selected defaultValue>
             Filtrar por peso
           </option>
           <option value="max_weight">Max</option>
@@ -68,48 +72,13 @@ function handleCreated(e) {
               ))
             }
         </select>
-
         <select onChange={e => handleCreated(e)}>
           <option value="All">Todos</option>
           <option value="Created">Db</option>
           <option value="Api">Api</option>
         </select>
 
-
       </div>
     )
 }
 
-
-/* <select onChange={e => handleCreated(e)}>
-          <option value="All">All</option>
-          <option value="Created">My Characters</option>
-          <option value="Api">Api Characters</option>
-        </select>*/
-
-
-        /*
-        <select className="selectCont" onChange= {FiltradoApiDbs}name="" id="">
-        <option className="option" value="default">
-          Dogs
-        </option>
-        <optgroup className="optionGroup" label="DataBase">
-          <option className="option" value="DB">
-            Creados
-          </option>
-        </optgroup>
-        <optgroup className="optionGroup" label="Api">
-          <option className="option" value="API">
-            Api
-          </option>
-        </optgroup>
-        </select> 
-         const FiltradoApiDbs = (e) => {
-        e.preventDefault();
-        dispatch(FiltradoApiDb(e.target.value))
-        setOrden(`Ordenado ${e.target.value}`);
-      }
-
-        
-        
-        */ 

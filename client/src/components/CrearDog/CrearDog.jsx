@@ -16,7 +16,7 @@ export default function CrearDog() {
   const dogs = useSelector((state) => state.dogs)
 //console.log(dogs)
 
-  const history = useHistory();
+ // const history = useHistory();
 
   const [button, setButton] = useState(true);
   const [errors, setErrors] = useState({
@@ -75,7 +75,7 @@ export default function CrearDog() {
       
       temperaments: [],
     });
-    history.push("/dogs")
+   // history.push("/dogs")
   };
 
 
@@ -156,18 +156,17 @@ export default function CrearDog() {
       errors.name="nombre ya existente"
     }
   
-  
   //! Validacion Min altura
   
     if(!form.min_height ) {
         errors.min_height = "Este campo es obligatorio"
-      
+     
     }else if (!/^([0-9]){1,2}$/.test(form.min_height)){
       errors.min_height = "Formato no valido"
     }else if (form.min_height.trim().length === 0){
       errors.min_height = "No debe contener espacios"
     }else if (!/^.{0,3}$/.test(form.min_height)){
-      errors.min_height = "Limite de caracter"
+      errors.min_height = "Limite de caracter"  
     }
   
   //! Validacion Max altura

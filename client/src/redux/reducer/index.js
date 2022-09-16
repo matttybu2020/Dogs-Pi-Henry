@@ -1,5 +1,5 @@
          
-import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,FILTRADO_API_DB,SAVE_PAGE,DELETE_DOG,CLEAR_DETAIL } from "../Action/constantes"
+import {ALL_DOGS,GET_TEMPERAMENTS,BREED,DOG_DETAILS,FILTER_TEMPERAMENTS,ORDER_NAME,ORDER_WEIGHT,SAVE_PAGE,CLEAR_DETAIL,FILTRADO_API_DB,DELETE_DOG} from "../Action/constantes"
 
 
 
@@ -72,7 +72,7 @@ const rootReducer = (state = intialState, action) => {
         case ORDER_NAME:
           const orderName = action.payload === 'Asc' ? //compara y ordena izq y derecha
           state.dogs.sort(function(a, b) { // sort metodo de ordenamiento 
-              if(a.name.toLowerCase()> b.name.toLowerCase()) {  // compara el valor y retorna esa posicion
+              if(a.name.toLowerCase() > b.name.toLowerCase()) {  // compara el valor y retorna esa posicion
                   return 1;
               }
               if(b.name.toLowerCase() > a.name.toLowerCase()) {
@@ -128,7 +128,7 @@ const rootReducer = (state = intialState, action) => {
             return {
                 ...state,
                 dogs: action.payload === 'All' ? state.allDogs : createdFilter
-            }
+            }  
             case SAVE_PAGE:
               return{
                 ...state,
@@ -144,14 +144,15 @@ const rootReducer = (state = intialState, action) => {
                  //dogs :state.dogs.filter(rec=>rec.id != action.payload),
                 }
                 case CLEAR_DETAIL:
-                                            return {
+                                    return {
                                                 ...state,
                                                 dogs: action.payload,
                                                 detail: action.payload,
-                                                deleteDogs: action.payload
+                                                deleteDogs: action.payload,
+                                                allDogs: action.payload
                                             }
-                 
-                      
+
+                  
 
     default:
       return state;
@@ -159,3 +160,24 @@ const rootReducer = (state = intialState, action) => {
 };
 
 export default rootReducer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

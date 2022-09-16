@@ -14,6 +14,8 @@ const router = Router();
 
 let urLink = `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`;
 
+
+
 const getApiData = async () => {
   const apiData = await axios.get(urLink);
   const apiInfo = await apiData.data.map((el) => {
@@ -65,6 +67,10 @@ const getAllDogs = async () => {
   return allDataMixed;
 };
 
+
+
+
+
 //!--endpoints--//
 
 //* Ruta que me traigo Todos */
@@ -85,6 +91,8 @@ router.get("/dogs", async (req, res) => {
   }
 });
 
+
+
 //** Ruta para el Id */
 
 router.get("/dogs/:idRaza", async (req, res) => {
@@ -98,6 +106,9 @@ router.get("/dogs/:idRaza", async (req, res) => {
     res.status(404).send("Dog no found in the Data");
   }
 });
+
+
+
 
 //** Ruta que Me traigo los Temperamentos */
 
@@ -118,10 +129,17 @@ router.get("/temperament", async (req, res) => {
   res.send(allTemp);
 });
 
+
+
+
 //** Ruta de Creacion */
 
 router.post("/dog", async (req, res) => {
-  let {
+
+
+//if{ !name,!min_height,!max_height,!min_weight,!max_weight,!life_span, !temperaments,!image,}
+    
+let {
     name,
     min_height,
     max_height,
@@ -133,7 +151,7 @@ router.post("/dog", async (req, res) => {
    
     createdInDb,
   } = req.body;
-
+  
   const fixedHeight = [];
   const minHeight = min_height;
   const maxHeight = max_height;
@@ -143,6 +161,10 @@ router.post("/dog", async (req, res) => {
   const minWeight = min_weight;
   const maxWeight = max_weight;
   fixedWeight.push(minWeight, maxWeight);
+
+
+
+
 
   let dog = await Dog.create({
     name,
@@ -168,25 +190,9 @@ router.post("/dog", async (req, res) => {
 router.use(express.json());
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //** Ruta delete prueba beta */
 
-/*router.delete("/dogs/:id", async (req, res, next) => {
+router.delete("/dogs/:id", async (req, res, next) => {
   const { id } = req.params;
   try {
     Dog.destroy({ where: { id: id } });
@@ -194,8 +200,9 @@ router.use(express.json());
   } catch (err) {
     next(err);
   }
-});*/
-/*
+});
+
+
 router.put("/dogdetail/:id", async (req, res) => {
   const { id } = req.params;
   const {
@@ -231,7 +238,7 @@ router.put("/dogdetail/:id", async (req, res) => {
   } catch (error) {
     res.status(404).send("No se Actualizo");
   }
-});*/
+});
 
 //** Error 404*/
 /*

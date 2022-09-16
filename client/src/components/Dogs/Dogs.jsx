@@ -19,6 +19,9 @@ import Filtrado from "../Filtrado/Filtrado.jsx";
 import "./Dogs.css";
 
 export default function Dogs() {
+
+
+  
   //** me traigo todos los perros y temperamentos */
   const dispatch = useDispatch();
   const allDog = useSelector((state) => state.dogs);
@@ -46,24 +49,7 @@ export default function Dogs() {
   } else {
     currentDogs = allDog.slice(indexFirstDogs, indexLastDogs); //uso los indices para "fraccionar que juegos muestro"
   }
-  /*useEffect(() => {
-    //acciones a depachar luego de montar el componente
-    dispatch(AllDogs())
-    dispatch(getTemperaments());
-  }, [dispatch]);*/
-
-  /*
-  if(typeof allDog  === 'string'){
-    currentDogs = allDog
-}else{
-   currentDogs = allDog.slice(indexFirstDogs, indexLastDogs); //elementos a renderizar en la pagina, segun el valor de paginado
-}
- // console.log(currentDogs)
-  
-  
-*/
-
-  //console.log(currentDogs);
+ 
 
   const paginado = (numberOfPage) => {
     setCurrentPage(numberOfPage);

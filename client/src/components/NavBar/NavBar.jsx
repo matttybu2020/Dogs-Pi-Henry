@@ -8,7 +8,7 @@ function NavBar() {
     return (
         <>
         <div className="navbar-div">
-                <NavLink to="/"><button>Landing</button></NavLink>
+                <NavLink to="/"><button>Principal</button></NavLink>
                 <NavLink to="/dogs"><button>Dogs</button></NavLink>
                 <NavLink to="/creardog"><button>CrearDog</button></NavLink>
                 <NavLink to="/about"><button>About</button></NavLink>
